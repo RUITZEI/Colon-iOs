@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AB094D851964941500D0E3D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D841964941500D0E3D0 /* Foundation.framework */; };
+		AB094D871964941500D0E3D0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D861964941500D0E3D0 /* CoreGraphics.framework */; };
+		AB094D891964941500D0E3D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D881964941500D0E3D0 /* UIKit.framework */; };
+		AB094D8F1964941500D0E3D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB094D8D1964941500D0E3D0 /* InfoPlist.strings */; };
+		AB094D911964941500D0E3D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094D901964941500D0E3D0 /* main.m */; };
+		AB094D951964941500D0E3D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094D941964941500D0E3D0 /* AppDelegate.m */; };
+		AB094D981964941500D0E3D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB094D961964941500D0E3D0 /* Main.storyboard */; };
+		AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094D9A1964941500D0E3D0 /* ViewController.m */; };
+		AB094D9D1964941500D0E3D0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB094D9C1964941500D0E3D0 /* Images.xcassets */; };
+		AB094DA41964941500D0E3D0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094DA31964941500D0E3D0 /* XCTest.framework */; };
+		AB094DA51964941500D0E3D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D841964941500D0E3D0 /* Foundation.framework */; };
+		AB094DA61964941500D0E3D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D881964941500D0E3D0 /* UIKit.framework */; };
+		AB094DAE1964941500D0E3D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB094DAC1964941500D0E3D0 /* InfoPlist.strings */; };
+		AB094DB01964941500D0E3D0 /* ColonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094DAF1964941500D0E3D0 /* ColonAppTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AB094DA71964941500D0E3D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AB094D791964941500D0E3D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB094D801964941500D0E3D0;
+			remoteInfo = ColonApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AB094D811964941500D0E3D0 /* ColonApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ColonApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB094D841964941500D0E3D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		AB094D861964941500D0E3D0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AB094D881964941500D0E3D0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		AB094D8C1964941500D0E3D0 /* ColonApp-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColonApp-Info.plist"; sourceTree = "<group>"; };
+		AB094D8E1964941500D0E3D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB094D901964941500D0E3D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AB094D921964941500D0E3D0 /* ColonApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ColonApp-Prefix.pch"; sourceTree = "<group>"; };
+		AB094D931964941500D0E3D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AB094D941964941500D0E3D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AB094D971964941500D0E3D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AB094D991964941500D0E3D0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AB094D9A1964941500D0E3D0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AB094D9C1964941500D0E3D0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		AB094DA21964941500D0E3D0 /* ColonAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ColonAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB094DA31964941500D0E3D0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		AB094DAB1964941500D0E3D0 /* ColonAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColonAppTests-Info.plist"; sourceTree = "<group>"; };
+		AB094DAD1964941500D0E3D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AB094DAF1964941500D0E3D0 /* ColonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColonAppTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AB094D7E1964941500D0E3D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094D871964941500D0E3D0 /* CoreGraphics.framework in Frameworks */,
+				AB094D891964941500D0E3D0 /* UIKit.framework in Frameworks */,
+				AB094D851964941500D0E3D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB094D9F1964941500D0E3D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094DA41964941500D0E3D0 /* XCTest.framework in Frameworks */,
+				AB094DA61964941500D0E3D0 /* UIKit.framework in Frameworks */,
+				AB094DA51964941500D0E3D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AB094D781964941500D0E3D0 = {
+			isa = PBXGroup;
+			children = (
+				AB094D8A1964941500D0E3D0 /* ColonApp */,
+				AB094DA91964941500D0E3D0 /* ColonAppTests */,
+				AB094D831964941500D0E3D0 /* Frameworks */,
+				AB094D821964941500D0E3D0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		AB094D821964941500D0E3D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AB094D811964941500D0E3D0 /* ColonApp.app */,
+				AB094DA21964941500D0E3D0 /* ColonAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AB094D831964941500D0E3D0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB094D841964941500D0E3D0 /* Foundation.framework */,
+				AB094D861964941500D0E3D0 /* CoreGraphics.framework */,
+				AB094D881964941500D0E3D0 /* UIKit.framework */,
+				AB094DA31964941500D0E3D0 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB094D8A1964941500D0E3D0 /* ColonApp */ = {
+			isa = PBXGroup;
+			children = (
+				AB094D931964941500D0E3D0 /* AppDelegate.h */,
+				AB094D941964941500D0E3D0 /* AppDelegate.m */,
+				AB094D961964941500D0E3D0 /* Main.storyboard */,
+				AB094D991964941500D0E3D0 /* ViewController.h */,
+				AB094D9A1964941500D0E3D0 /* ViewController.m */,
+				AB094D9C1964941500D0E3D0 /* Images.xcassets */,
+				AB094D8B1964941500D0E3D0 /* Supporting Files */,
+			);
+			path = ColonApp;
+			sourceTree = "<group>";
+		};
+		AB094D8B1964941500D0E3D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB094D8C1964941500D0E3D0 /* ColonApp-Info.plist */,
+				AB094D8D1964941500D0E3D0 /* InfoPlist.strings */,
+				AB094D901964941500D0E3D0 /* main.m */,
+				AB094D921964941500D0E3D0 /* ColonApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB094DA91964941500D0E3D0 /* ColonAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AB094DAF1964941500D0E3D0 /* ColonAppTests.m */,
+				AB094DAA1964941500D0E3D0 /* Supporting Files */,
+			);
+			path = ColonAppTests;
+			sourceTree = "<group>";
+		};
+		AB094DAA1964941500D0E3D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AB094DAB1964941500D0E3D0 /* ColonAppTests-Info.plist */,
+				AB094DAC1964941500D0E3D0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AB094D801964941500D0E3D0 /* ColonApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB094DB31964941500D0E3D0 /* Build configuration list for PBXNativeTarget "ColonApp" */;
+			buildPhases = (
+				AB094D7D1964941500D0E3D0 /* Sources */,
+				AB094D7E1964941500D0E3D0 /* Frameworks */,
+				AB094D7F1964941500D0E3D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ColonApp;
+			productName = ColonApp;
+			productReference = AB094D811964941500D0E3D0 /* ColonApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AB094DA11964941500D0E3D0 /* ColonAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB094DB61964941500D0E3D0 /* Build configuration list for PBXNativeTarget "ColonAppTests" */;
+			buildPhases = (
+				AB094D9E1964941500D0E3D0 /* Sources */,
+				AB094D9F1964941500D0E3D0 /* Frameworks */,
+				AB094DA01964941500D0E3D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB094DA81964941500D0E3D0 /* PBXTargetDependency */,
+			);
+			name = ColonAppTests;
+			productName = ColonAppTests;
+			productReference = AB094DA21964941500D0E3D0 /* ColonAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AB094D791964941500D0E3D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Ruitzei;
+				TargetAttributes = {
+					AB094DA11964941500D0E3D0 = {
+						TestTargetID = AB094D801964941500D0E3D0;
+					};
+				};
+			};
+			buildConfigurationList = AB094D7C1964941500D0E3D0 /* Build configuration list for PBXProject "ColonApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AB094D781964941500D0E3D0;
+			productRefGroup = AB094D821964941500D0E3D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AB094D801964941500D0E3D0 /* ColonApp */,
+				AB094DA11964941500D0E3D0 /* ColonAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AB094D7F1964941500D0E3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094D9D1964941500D0E3D0 /* Images.xcassets in Resources */,
+				AB094D8F1964941500D0E3D0 /* InfoPlist.strings in Resources */,
+				AB094D981964941500D0E3D0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB094DA01964941500D0E3D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094DAE1964941500D0E3D0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AB094D7D1964941500D0E3D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */,
+				AB094D951964941500D0E3D0 /* AppDelegate.m in Sources */,
+				AB094D911964941500D0E3D0 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB094D9E1964941500D0E3D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB094DB01964941500D0E3D0 /* ColonAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AB094DA81964941500D0E3D0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB094D801964941500D0E3D0 /* ColonApp */;
+			targetProxy = AB094DA71964941500D0E3D0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AB094D8D1964941500D0E3D0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB094D8E1964941500D0E3D0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AB094D961964941500D0E3D0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB094D971964941500D0E3D0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AB094DAC1964941500D0E3D0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB094DAD1964941500D0E3D0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AB094DB11964941500D0E3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		AB094DB21964941500D0E3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AB094DB41964941500D0E3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
+				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AB094DB51964941500D0E3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
+				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		AB094DB71964941500D0E3D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ColonApp.app/ColonApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ColonAppTests/ColonAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		AB094DB81964941500D0E3D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ColonApp.app/ColonApp";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
+				INFOPLIST_FILE = "ColonAppTests/ColonAppTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AB094D7C1964941500D0E3D0 /* Build configuration list for PBXProject "ColonApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB094DB11964941500D0E3D0 /* Debug */,
+				AB094DB21964941500D0E3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB094DB31964941500D0E3D0 /* Build configuration list for PBXNativeTarget "ColonApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB094DB41964941500D0E3D0 /* Debug */,
+				AB094DB51964941500D0E3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AB094DB61964941500D0E3D0 /* Build configuration list for PBXNativeTarget "ColonAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB094DB71964941500D0E3D0 /* Debug */,
+				AB094DB81964941500D0E3D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AB094D791964941500D0E3D0 /* Project object */;
+}
