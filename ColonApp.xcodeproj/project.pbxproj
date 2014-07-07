@@ -21,6 +21,20 @@
 		AB094DA61964941500D0E3D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D881964941500D0E3D0 /* UIKit.framework */; };
 		AB094DAE1964941500D0E3D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB094DAC1964941500D0E3D0 /* InfoPlist.strings */; };
 		AB094DB01964941500D0E3D0 /* ColonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094DAF1964941500D0E3D0 /* ColonAppTests.m */; };
+		AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191C19649501007A3F6E /* ItemAgenda.m */; };
+		AB5B19201964967B007A3F6E /* ColonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191F1964967B007A3F6E /* ColonParser.m */; };
+		AB5B1923196498CE007A3F6E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1922196498CE007A3F6E /* Constants.m */; };
+		AB6331741965DC790004E6FA /* default_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB6331731965DC790004E6FA /* default_logo.jpg */; };
+		AB6331791965E3040004E6FA /* availability_excellent.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331751965E3040004E6FA /* availability_excellent.png */; };
+		AB63317A1965E3040004E6FA /* availability_good.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331761965E3040004E6FA /* availability_good.png */; };
+		AB63317B1965E3040004E6FA /* availability_limited.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331771965E3040004E6FA /* availability_limited.png */; };
+		AB63317C1965E3040004E6FA /* availability_sold_out.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331781965E3040004E6FA /* availability_sold_out.png */; };
+		AB6CE77D196AF34200F4431D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77C196AF34200F4431D /* SDWebImage.framework */; };
+		AB6CE77F196AF5FA00F4431D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77E196AF5FA00F4431D /* ImageIO.framework */; };
+		AB6DE77F19672710004B5CB3 /* degrade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6DE77E19672710004B5CB3 /* degrade.png */; };
+		AB6DE786196731AF004B5CB3 /* UIColor+RGBValue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */; };
+		ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */; };
+		ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855C11965C6DC00CC5496 /* CustomCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +67,26 @@
 		AB094DAB1964941500D0E3D0 /* ColonAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColonAppTests-Info.plist"; sourceTree = "<group>"; };
 		AB094DAD1964941500D0E3D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB094DAF1964941500D0E3D0 /* ColonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColonAppTests.m; sourceTree = "<group>"; };
+		AB5B191B19649501007A3F6E /* ItemAgenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAgenda.h; sourceTree = "<group>"; };
+		AB5B191C19649501007A3F6E /* ItemAgenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAgenda.m; sourceTree = "<group>"; };
+		AB5B191E1964967B007A3F6E /* ColonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColonParser.h; sourceTree = "<group>"; };
+		AB5B191F1964967B007A3F6E /* ColonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColonParser.m; sourceTree = "<group>"; };
+		AB5B1921196498CE007A3F6E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		AB5B1922196498CE007A3F6E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		AB6331731965DC790004E6FA /* default_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_logo.jpg; sourceTree = "<group>"; };
+		AB6331751965E3040004E6FA /* availability_excellent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_excellent.png; sourceTree = "<group>"; };
+		AB6331761965E3040004E6FA /* availability_good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_good.png; sourceTree = "<group>"; };
+		AB6331771965E3040004E6FA /* availability_limited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_limited.png; sourceTree = "<group>"; };
+		AB6331781965E3040004E6FA /* availability_sold_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_sold_out.png; sourceTree = "<group>"; };
+		AB6CE77C196AF34200F4431D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
+		AB6CE77E196AF5FA00F4431D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		AB6DE77E19672710004B5CB3 /* degrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degrade.png; sourceTree = "<group>"; };
+		AB6DE784196731AF004B5CB3 /* UIColor+RGBValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValue.h"; sourceTree = "<group>"; };
+		AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValue.m"; sourceTree = "<group>"; };
+		ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaTableViewController.h; sourceTree = "<group>"; };
+		ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaTableViewController.m; sourceTree = "<group>"; };
+		ABD855C01965C6DC00CC5496 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		ABD855C11965C6DC00CC5496 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6CE77F196AF5FA00F4431D /* ImageIO.framework in Frameworks */,
+				AB6CE77D196AF34200F4431D /* SDWebImage.framework in Frameworks */,
 				AB094D871964941500D0E3D0 /* CoreGraphics.framework in Frameworks */,
 				AB094D891964941500D0E3D0 /* UIKit.framework in Frameworks */,
 				AB094D851964941500D0E3D0 /* Foundation.framework in Frameworks */,
@@ -82,6 +118,8 @@
 		AB094D781964941500D0E3D0 = {
 			isa = PBXGroup;
 			children = (
+				AB6CE77C196AF34200F4431D /* SDWebImage.framework */,
+				AB6331721965DC660004E6FA /* Images */,
 				AB094D8A1964941500D0E3D0 /* ColonApp */,
 				AB094DA91964941500D0E3D0 /* ColonAppTests */,
 				AB094D831964941500D0E3D0 /* Frameworks */,
@@ -101,6 +139,7 @@
 		AB094D831964941500D0E3D0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB6CE77E196AF5FA00F4431D /* ImageIO.framework */,
 				AB094D841964941500D0E3D0 /* Foundation.framework */,
 				AB094D861964941500D0E3D0 /* CoreGraphics.framework */,
 				AB094D881964941500D0E3D0 /* UIKit.framework */,
@@ -113,12 +152,24 @@
 			isa = PBXGroup;
 			children = (
 				AB094D931964941500D0E3D0 /* AppDelegate.h */,
+				AB6DE784196731AF004B5CB3 /* UIColor+RGBValue.h */,
+				AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */,
 				AB094D941964941500D0E3D0 /* AppDelegate.m */,
+				AB5B191B19649501007A3F6E /* ItemAgenda.h */,
+				AB5B191C19649501007A3F6E /* ItemAgenda.m */,
 				AB094D961964941500D0E3D0 /* Main.storyboard */,
 				AB094D991964941500D0E3D0 /* ViewController.h */,
 				AB094D9A1964941500D0E3D0 /* ViewController.m */,
 				AB094D9C1964941500D0E3D0 /* Images.xcassets */,
+				AB5B191E1964967B007A3F6E /* ColonParser.h */,
+				AB5B191F1964967B007A3F6E /* ColonParser.m */,
+				AB5B1921196498CE007A3F6E /* Constants.h */,
+				AB5B1922196498CE007A3F6E /* Constants.m */,
 				AB094D8B1964941500D0E3D0 /* Supporting Files */,
+				ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */,
+				ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */,
+				ABD855C01965C6DC00CC5496 /* CustomCell.h */,
+				ABD855C11965C6DC00CC5496 /* CustomCell.m */,
 			);
 			path = ColonApp;
 			sourceTree = "<group>";
@@ -150,6 +201,19 @@
 				AB094DAC1964941500D0E3D0 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AB6331721965DC660004E6FA /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				AB6DE77E19672710004B5CB3 /* degrade.png */,
+				AB6331751965E3040004E6FA /* availability_excellent.png */,
+				AB6331761965E3040004E6FA /* availability_good.png */,
+				AB6331771965E3040004E6FA /* availability_limited.png */,
+				AB6331781965E3040004E6FA /* availability_sold_out.png */,
+				AB6331731965DC790004E6FA /* default_logo.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,9 +292,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB6331741965DC790004E6FA /* default_logo.jpg in Resources */,
 				AB094D9D1964941500D0E3D0 /* Images.xcassets in Resources */,
+				AB6331791965E3040004E6FA /* availability_excellent.png in Resources */,
+				AB63317A1965E3040004E6FA /* availability_good.png in Resources */,
+				AB63317B1965E3040004E6FA /* availability_limited.png in Resources */,
 				AB094D8F1964941500D0E3D0 /* InfoPlist.strings in Resources */,
+				AB6DE77F19672710004B5CB3 /* degrade.png in Resources */,
 				AB094D981964941500D0E3D0 /* Main.storyboard in Resources */,
+				AB63317C1965E3040004E6FA /* availability_sold_out.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,9 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */,
 				AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */,
+				ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */,
 				AB094D951964941500D0E3D0 /* AppDelegate.m in Sources */,
+				AB6DE786196731AF004B5CB3 /* UIColor+RGBValue.m in Sources */,
+				AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */,
+				AB5B19201964967B007A3F6E /* ColonParser.m in Sources */,
 				AB094D911964941500D0E3D0 /* main.m in Sources */,
+				AB5B1923196498CE007A3F6E /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,10 +452,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
 				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					SDWebImage.framework/Versions/Current/SDWebImage,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -389,10 +475,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
 				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = (
+					"-force_load",
+					SDWebImage.framework/Versions/Current/SDWebImage,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -456,6 +552,7 @@
 				AB094DB51964941500D0E3D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AB094DB61964941500D0E3D0 /* Build configuration list for PBXNativeTarget "ColonAppTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +561,7 @@
 				AB094DB81964941500D0E3D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
