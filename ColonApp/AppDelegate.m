@@ -7,13 +7,59 @@
 //
 
 #import "AppDelegate.h"
+#import "Constants.h"
+#import "ColonParser.h"
 
 @implementation AppDelegate
 
+@synthesize agenda;
+@synthesize tablaDisponibilidad;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    NSURL *url = [[NSURL alloc] initWithString:URL_RSS_COLON];
+    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+    
+    NSXMLParser *xmlParser = [[NSXMLParser alloc] initWithData:data];
+    
+    ColonParser *colonParser = [[ColonParser alloc] initParser];
+    
+    [xmlParser setDelegate:colonParser];
+    
+    BOOL worked = [xmlParser parse];
+    
+    if (worked){
+        NSLog(@" # items agenda: %i", [agenda count]);
+        ItemAgenda *unItem = [[ItemAgenda alloc] init];
+        unItem = [ agenda objectAtIndex:1];
+        NSLog(@"Nombre: %@ \n Fecha: %@ \n Link: %@ \n" , unItem.nombre, unItem.fecha, unItem.link);
+    }else{
+        NSLog(@"No Funciono...");
+    }
+    
+    [self inicializarTablaDisponibilidad];
+    
+    //[self.window makeKeyAndVisible];
+        
+    
+    
     // Override point for customization after application launch.
     return YES;
+}
+
+
+// Carga el nombre de la imagen correspondiente a cada Valor en un Hash.
+- (void) inicializarTablaDisponibilidad{
+    
+    if (!tablaDisponibilidad) {
+        tablaDisponibilidad = [[NSMutableDictionary alloc] initWithCapacity:5];
+        
+        [tablaDisponibilidad setValue:@"availability_excellent.png" forKey:@"E"];
+        [tablaDisponibilidad setValue:@"availability_good.png" forKey:@"G"];
+        [tablaDisponibilidad setValue:@"availability_limited.png" forKey:@"L"];
+        [tablaDisponibilidad setValue:@"availability_sold_out.png" forKey:@"S"];
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

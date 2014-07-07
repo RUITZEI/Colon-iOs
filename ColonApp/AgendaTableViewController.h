@@ -1,19 +1,20 @@
 //
-//  ViewController.h
+//  AgendaTableViewController.h
 //  ColonApp
 //
-//  Created by Manuel Ruiz on 7/2/14.
+//  Created by Manuel Ruiz on 7/3/14.
 //  Copyright (c) 2014 Ruitzei. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "AppDelegate.h"
 #import "ItemAgenda.h"
+#import "AppDelegate.h"
+#import "UIColor+RGBValue.h"
 
-@interface ViewController : UIViewController
+
+@interface AgendaTableViewController : UITableViewController
 
 @property (nonatomic, retain) AppDelegate *app;
 @property (nonatomic, retain) ItemAgenda *itemAgenda;
-@property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @end
