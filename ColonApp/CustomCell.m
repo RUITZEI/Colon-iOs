@@ -31,6 +31,11 @@
     // Configure the view for the selected state
 }
 
+
+/*
+ 
+ Esto es un comentario de Prueba para ver si se comitea...
+ */
 - (void) asignarImagenConLink:(NSString *)link{
     NSString *nombreDeLaImagen;
     
