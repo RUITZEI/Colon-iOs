@@ -22,3 +22,5 @@ NSString *const ATT_FECHA = @"data1";
 NSString *const ATT_LINK = @"performance_id";
 NSString *const ATT_LOGOID = @"performance_logo1";
 NSString *const ATT_DISPONIBILIDAD = @"availability_status";
+
+NSString *const COMPRA_COLON = @"https://www.tuentrada.com/colon/Online/seatSelect.asp?BOset::WSmap::seatmap::performance_ids=";

@@ -8,6 +8,7 @@
 
 #import "AgendaTableViewController.h"
 #import "CustomCell.h"
+#import "ItemDetailViewController.h"
 
 @interface AgendaTableViewController ()
 
@@ -85,6 +86,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 - (void)asignarImagenEnCelda:(CustomCell *)celda conLink:(NSString *)link{
     
     NSString *nombreDeLaImagen;
@@ -141,15 +147,24 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+    itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    
+    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
+        ItemDetailViewController *detailView = [segue destinationViewController];
+        detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
+
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
-*/
+
 
 @end

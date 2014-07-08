@@ -18,5 +18,6 @@ extern NSString *const ATT_FECHA;
 extern NSString *const ATT_LINK;
 extern NSString *const ATT_LOGOID;
 extern NSString *const ATT_DISPONIBILIDAD;
+extern NSString *const COMPRA_COLON;
 
 @end
