@@ -154,27 +154,18 @@
 		AB094D8A1964941500D0E3D0 /* ColonApp */ = {
 			isa = PBXGroup;
 			children = (
+				ABE82AF5196C46C300B0FBC6 /* Utilitarios */,
+				ABE82AF3196C462B00B0FBC6 /* Constantes */,
+				ABE82AF2196C460600B0FBC6 /* Controllers */,
 				AB094D931964941500D0E3D0 /* AppDelegate.h */,
-				AB6DE784196731AF004B5CB3 /* UIColor+RGBValue.h */,
-				AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */,
 				AB094D941964941500D0E3D0 /* AppDelegate.m */,
 				AB5B191B19649501007A3F6E /* ItemAgenda.h */,
 				AB5B191C19649501007A3F6E /* ItemAgenda.m */,
 				AB094D961964941500D0E3D0 /* Main.storyboard */,
-				AB094D991964941500D0E3D0 /* ViewController.h */,
-				AB094D9A1964941500D0E3D0 /* ViewController.m */,
 				AB094D9C1964941500D0E3D0 /* Images.xcassets */,
-				AB5B191E1964967B007A3F6E /* ColonParser.h */,
-				AB5B191F1964967B007A3F6E /* ColonParser.m */,
-				AB5B1921196498CE007A3F6E /* Constants.h */,
-				AB5B1922196498CE007A3F6E /* Constants.m */,
-				AB094D8B1964941500D0E3D0 /* Supporting Files */,
-				ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */,
-				ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */,
 				ABD855C01965C6DC00CC5496 /* CustomCell.h */,
 				ABD855C11965C6DC00CC5496 /* CustomCell.m */,
-				AB8D10CD196B0EC300CA59BB /* ItemDetailViewController.h */,
-				AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */,
+				AB094D8B1964941500D0E3D0 /* Supporting Files */,
 			);
 			path = ColonApp;
 			sourceTree = "<group>";
@@ -219,6 +210,39 @@
 				AB6331731965DC790004E6FA /* default_logo.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		ABE82AF2196C460600B0FBC6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB094D991964941500D0E3D0 /* ViewController.h */,
+				AB094D9A1964941500D0E3D0 /* ViewController.m */,
+				ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */,
+				ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */,
+				AB8D10CD196B0EC300CA59BB /* ItemDetailViewController.h */,
+				AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		ABE82AF3196C462B00B0FBC6 /* Constantes */ = {
+			isa = PBXGroup;
+			children = (
+				AB6DE784196731AF004B5CB3 /* UIColor+RGBValue.h */,
+				AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */,
+				AB5B1921196498CE007A3F6E /* Constants.h */,
+				AB5B1922196498CE007A3F6E /* Constants.m */,
+			);
+			name = Constantes;
+			sourceTree = "<group>";
+		};
+		ABE82AF5196C46C300B0FBC6 /* Utilitarios */ = {
+			isa = PBXGroup;
+			children = (
+				AB5B191E1964967B007A3F6E /* ColonParser.h */,
+				AB5B191F1964967B007A3F6E /* ColonParser.m */,
+			);
+			name = Utilitarios;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

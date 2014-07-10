@@ -12,12 +12,14 @@
 
 @interface AgendaTableViewController ()
 
+
 @end
 
 @implementation AgendaTableViewController
 
 @synthesize app;
 @synthesize itemAgenda;
+@synthesize resultadosBusqueda;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,7 +54,14 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.app.agenda count];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [resultadosBusqueda count];
+        
+    } else {
+        return [self.app.agenda count];
+    }
+//    return [self.app.agenda count];
 }
 
 
@@ -60,13 +69,22 @@
 {
     static NSString *CellIdentifier = @"Cell";
     
-    CustomCell *cell = [self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    CustomCell *cell = (CustomCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = (CustomCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-    itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        itemAgenda = [resultadosBusqueda objectAtIndex:indexPath.row];
+    } else {
+        itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    }
+    
+    
+    
+    //itemAgenda = [app.agenda objectAtIndex:indexPath.row];
 
     [cell asignarNombre:itemAgenda.nombre];
     [cell asignarTipo:itemAgenda.tipo];
@@ -74,14 +92,15 @@
     [cell asignarImagenConLink:itemAgenda.logoId];
     [cell asignariconoDisponibilidad:[app.tablaDisponibilidad valueForKey:itemAgenda.disponibilidad]];
     
-    /*
+    
     cell.backgroundColor = (indexPath.row%2)
     ? [UIColor darkGreyColorForCell]
     : [UIColor blackColorForCell];
-    */
+    
+    
      
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    
+    cell.accessoryView.backgroundColor = [UIColor redColor];
     
     return cell;
 }
@@ -91,21 +110,40 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
-- (void)asignarImagenEnCelda:(CustomCell *)celda conLink:(NSString *)link{
-    
-    NSString *nombreDeLaImagen;
-    
-    if ( link == nil) {
-        nombreDeLaImagen = [NSString stringWithFormat:@"default_logo.jpg"];
-    }
-    
-    celda.customImage.image = [UIImage imageNamed:nombreDeLaImagen];
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //Ojo, este numero hay que ponerlo manualmente para que no se cague con el searchviw.
+    return 105;
 }
+
+#pragma mark - Miscelaneos
 
 - (void) asignarIconoEnCelda:(CustomCell *)celda conDisponibilidad:(NSString *)disponibilidad{
     
     celda.customDisponibilidad.image = [UIImage imageNamed: [app.tablaDisponibilidad valueForKey:disponibilidad]];
     
+}
+
+#pragma mark - Search Filers methods
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
+    
+    NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"nombre contains[c] %@", searchText];
+    resultadosBusqueda = [self.app.agenda filteredArrayUsingPredicate:resultPredicate];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    
+    
+    //NSLog(@"Escribi: %@", searchString);
+    
+    return YES;
 }
 
 
@@ -154,16 +192,31 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    
+    
+    
+    // Si estaba activa la busqueda hay que cambiar el indexPath para que no
+    // quede con las referencias cambiadas.
+    
+    if (self.searchDisplayController.active) {
+        indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        itemAgenda = [resultadosBusqueda objectAtIndex:indexPath.row];
+        
+    } else {
+        
+        indexPath = [self.tableView indexPathForSelectedRow];
+        itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    }
+    
     
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
         ItemDetailViewController *detailView = [segue destinationViewController];
         detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
 
+    } else{
+        NSLog(@"Se abrio un Segue no identificado");
     }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 

@@ -17,5 +17,6 @@
 
 @property (nonatomic, retain) AppDelegate *app;
 @property (nonatomic, retain) ItemAgenda *itemAgenda;
+@property (nonatomic, strong) NSArray *resultadosBusqueda;
 
 @end

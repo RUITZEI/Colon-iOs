@@ -15,7 +15,7 @@
 }
 
 + (UIColor *) darkGreyColorForCell{
-    return [UIColor RGBValueRed:27.0 Green:27.0 andBlue:26.0];
+    return [UIColor RGBValueRed:27.0 Green:26.0 andBlue:26.0];
 }
 
 

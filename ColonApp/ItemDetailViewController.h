@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ItemDetailViewController : UIViewController
+<UIWebViewDelegate>
 
 @property (strong, nonatomic) NSString* link;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

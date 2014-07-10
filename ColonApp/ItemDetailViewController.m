@@ -16,12 +16,14 @@
 
 @synthesize webView;
 @synthesize link;
+@synthesize spinner;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+
     }
     return self;
 }
@@ -29,6 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"seteando delegate del webView");
+    [webView setDelegate:self];
+    
     // Do any additional setup after loading the view.
     //NSString *colon = [NSString stringWithFormat:@"https://www.tuentrada.com/extrasTuE/colon/tour/tour.html"];
     
@@ -42,6 +47,30 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - WebView Delegate methods.
+
+- (void)webViewDidStartLoad:(UIWebView *)webView{
+    
+    NSLog(@"Comenzo a cargar el sitio");
+    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    //spinner.center = CGPointMake(160, 240);
+    //spinner.tag = 12;
+    [spinner startAnimating];
+    //[self.view addSubview:spinner];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView{
+    
+    NSLog(@"Termino la carga del Sitio");
+    [self.spinner stopAnimating];
+    //[self.spinner removeFromSuperview];
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
+    NSLog(@"Error cargando el sitio");
+    [self.spinner stopAnimating];
 }
 
 /*
