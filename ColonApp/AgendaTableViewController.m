@@ -20,6 +20,7 @@
 @synthesize app;
 @synthesize itemAgenda;
 @synthesize resultadosBusqueda;
+@synthesize searchBar;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,6 +38,32 @@
     app = [[UIApplication sharedApplication] delegate];
     
     [self.tableView reloadData];
+    
+    [self.tableView setContentOffset:CGPointMake(0, 44)];
+    [self cargarFiltros];
+    
+    
+    // Hide the search bar until user scrolls up
+    /*
+    CGRect newBounds = self.tableView.bounds;
+    newBounds.origin.y = newBounds.origin.y + self.searchDisplayController.searchBar.bounds.size.height;
+    self.tableView.bounds = newBounds;
+    */
+}
+
+- (void) cargarFiltros{
+    NSString *path = [[NSBundle mainBundle] pathForResource:
+                      @"clavesFiltros" ofType:@"plist"];
+    
+    /*
+    NSArray *testArray = [[NSArray alloc] initWithContentsOfFile:path ];
+    
+    for (NSString *str in testArray) {
+        NSLog(@"--%@", str);
+    }
+    */
+    
+    [self.searchBar setScopeButtonTitles: [NSArray arrayWithContentsOfFile:path]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -216,6 +243,25 @@
 
     } else{
         NSLog(@"Se abrio un Segue no identificado");
+    }
+}
+
+
+#pragma  mark - Search Button
+-(IBAction)goToSearch:(id)sender {
+    // If you're worried that your users might not catch on to the fact that a search bar is available if they scroll to reveal it, a search icon will help them
+    // If you don't hide your search bar in your app, don’t include this, as it would be redundant
+    //[self.searchDisplayController.searchBar becomeFirstResponder];
+    
+    if (self.searchDisplayController.isActive || (self.tableView.contentOffset.y < 44)) {
+        if (self.searchDisplayController.isActive) {
+            self.searchDisplayController.searchBar.text = nil;
+            [self.searchDisplayController setActive:NO animated:YES];
+            [self.tableView reloadData];
+        }
+        [self.tableView setContentOffset:CGPointMake(0, 44)];
+    } else {
+        [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     }
 }
 

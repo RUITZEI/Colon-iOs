@@ -19,5 +19,7 @@ extern NSString *const ATT_LINK;
 extern NSString *const ATT_LOGOID;
 extern NSString *const ATT_DISPONIBILIDAD;
 extern NSString *const COMPRA_COLON;
+extern NSString *const COLON_360;
+extern NSString *const PROGRAMA_COLON;;
 
 @end

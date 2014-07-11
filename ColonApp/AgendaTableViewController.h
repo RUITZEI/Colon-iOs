@@ -18,5 +18,10 @@
 @property (nonatomic, retain) AppDelegate *app;
 @property (nonatomic, retain) ItemAgenda *itemAgenda;
 @property (nonatomic, strong) NSArray *resultadosBusqueda;
+@property IBOutlet UISearchBar *searchBar;
+
+
+-(IBAction)goToSearch:(id)sender;
+
 
 @end

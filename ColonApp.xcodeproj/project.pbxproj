@@ -24,11 +24,14 @@
 		AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191C19649501007A3F6E /* ItemAgenda.m */; };
 		AB5B19201964967B007A3F6E /* ColonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191F1964967B007A3F6E /* ColonParser.m */; };
 		AB5B1923196498CE007A3F6E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1922196498CE007A3F6E /* Constants.m */; };
+		AB5DE6E8196F0AD30008C55E /* clavesFiltros.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */; };
 		AB6331741965DC790004E6FA /* default_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB6331731965DC790004E6FA /* default_logo.jpg */; };
 		AB6331791965E3040004E6FA /* availability_excellent.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331751965E3040004E6FA /* availability_excellent.png */; };
 		AB63317A1965E3040004E6FA /* availability_good.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331761965E3040004E6FA /* availability_good.png */; };
 		AB63317B1965E3040004E6FA /* availability_limited.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331771965E3040004E6FA /* availability_limited.png */; };
 		AB63317C1965E3040004E6FA /* availability_sold_out.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331781965E3040004E6FA /* availability_sold_out.png */; };
+		AB645343197040B700FDA3E7 /* background_colon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB645342197040B700FDA3E7 /* background_colon.png */; };
+		AB64534619705AA600FDA3E7 /* Colon360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64534519705AA600FDA3E7 /* Colon360ViewController.m */; };
 		AB6CE77D196AF34200F4431D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77C196AF34200F4431D /* SDWebImage.framework */; };
 		AB6CE77F196AF5FA00F4431D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77E196AF5FA00F4431D /* ImageIO.framework */; };
 		AB6DE77F19672710004B5CB3 /* degrade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6DE77E19672710004B5CB3 /* degrade.png */; };
@@ -74,11 +77,15 @@
 		AB5B191F1964967B007A3F6E /* ColonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColonParser.m; sourceTree = "<group>"; };
 		AB5B1921196498CE007A3F6E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AB5B1922196498CE007A3F6E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = clavesFiltros.plist; sourceTree = "<group>"; };
 		AB6331731965DC790004E6FA /* default_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_logo.jpg; sourceTree = "<group>"; };
 		AB6331751965E3040004E6FA /* availability_excellent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_excellent.png; sourceTree = "<group>"; };
 		AB6331761965E3040004E6FA /* availability_good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_good.png; sourceTree = "<group>"; };
 		AB6331771965E3040004E6FA /* availability_limited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_limited.png; sourceTree = "<group>"; };
 		AB6331781965E3040004E6FA /* availability_sold_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_sold_out.png; sourceTree = "<group>"; };
+		AB645342197040B700FDA3E7 /* background_colon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_colon.png; sourceTree = "<group>"; };
+		AB64534419705AA600FDA3E7 /* Colon360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colon360ViewController.h; sourceTree = "<group>"; };
+		AB64534519705AA600FDA3E7 /* Colon360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colon360ViewController.m; sourceTree = "<group>"; };
 		AB6CE77C196AF34200F4431D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		AB6CE77E196AF5FA00F4431D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		AB6DE77E19672710004B5CB3 /* degrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degrade.png; sourceTree = "<group>"; };
@@ -202,6 +209,7 @@
 		AB6331721965DC660004E6FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				AB645342197040B700FDA3E7 /* background_colon.png */,
 				AB6DE77E19672710004B5CB3 /* degrade.png */,
 				AB6331751965E3040004E6FA /* availability_excellent.png */,
 				AB6331761965E3040004E6FA /* availability_good.png */,
@@ -221,6 +229,8 @@
 				ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */,
 				AB8D10CD196B0EC300CA59BB /* ItemDetailViewController.h */,
 				AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */,
+				AB64534419705AA600FDA3E7 /* Colon360ViewController.h */,
+				AB64534519705AA600FDA3E7 /* Colon360ViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +242,7 @@
 				AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */,
 				AB5B1921196498CE007A3F6E /* Constants.h */,
 				AB5B1922196498CE007A3F6E /* Constants.m */,
+				AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */,
 			);
 			name = Constantes;
 			sourceTree = "<group>";
@@ -323,6 +334,8 @@
 			files = (
 				AB6331741965DC790004E6FA /* default_logo.jpg in Resources */,
 				AB094D9D1964941500D0E3D0 /* Images.xcassets in Resources */,
+				AB645343197040B700FDA3E7 /* background_colon.png in Resources */,
+				AB5DE6E8196F0AD30008C55E /* clavesFiltros.plist in Resources */,
 				AB6331791965E3040004E6FA /* availability_excellent.png in Resources */,
 				AB63317A1965E3040004E6FA /* availability_good.png in Resources */,
 				AB63317B1965E3040004E6FA /* availability_limited.png in Resources */,
@@ -348,6 +361,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB64534619705AA600FDA3E7 /* Colon360ViewController.m in Sources */,
 				ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */,
 				AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */,
 				ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */,
