@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Ruitzei. All rights reserved.
 //
 
-#import "Colon360ViewController.h"
+#import "ProgramaViewController.h"
 
-@interface Colon360ViewController ()
+@interface ProgramaViewController ()
 
 @end
 
-@implementation Colon360ViewController
+@implementation ProgramaViewController
 
 @synthesize webView;
 @synthesize spinner;
@@ -31,10 +31,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [super viewDidLoad];
-    NSLog(@"seteando delegate del COLON 360");
+    NSLog(@"seteando delegate del Programa Colon");
     [webView setDelegate:self];
-    
-    NSURL *url = [NSURL URLWithString:COLON_360];
+
+    NSURL *url = [NSURL URLWithString:PROGRAMA_COLON];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
 }
@@ -60,12 +60,13 @@
     
     NSLog(@"Termino la carga del Sitio");
     [self.spinner stopAnimating];
-    //[self.spinner removeFromSuperview];
+    [self.spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"Error cargando el sitio");
     [self.spinner stopAnimating];
+    [self.spinner removeFromSuperview];
 }
 
 /*

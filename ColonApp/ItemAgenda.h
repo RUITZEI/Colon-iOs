@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSString *link;
 @property (nonatomic, retain) NSString *logoId;
 @property (nonatomic, retain) NSString *disponibilidad;
+@property (nonatomic, retain) NSString *saleDate;
 @property (nonatomic, readwrite) NSInteger itemId;
 
 

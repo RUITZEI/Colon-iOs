@@ -40,6 +40,8 @@
     [self.tableView reloadData];
     
     [self.tableView setContentOffset:CGPointMake(0, 44)];
+    
+    
     [self cargarFiltros];
     
     
@@ -112,6 +114,15 @@
     
     
     //itemAgenda = [app.agenda objectAtIndex:indexPath.row];
+    
+    
+    //Selector Color.
+    
+    /*
+    UIView *bgColorView = [[UIView alloc] init];
+    bgColorView.backgroundColor = [UIColor redColor];
+    [cell setSelectedBackgroundView:bgColorView]; */
+    
 
     [cell asignarNombre:itemAgenda.nombre];
     [cell asignarTipo:itemAgenda.tipo];
@@ -132,9 +143,28 @@
     return cell;
 }
 
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (self.searchDisplayController.isActive) {
+        itemAgenda = [resultadosBusqueda objectAtIndex:indexPath.row];
+    } else {
+        itemAgenda = [self.app.agenda objectAtIndex:indexPath.row];
+    }
+    
+    BOOL tieneAsientosDisponibles = ![itemAgenda.disponibilidad isEqualToString:@"S"];
+    BOOL estaEnVenta = ([itemAgenda.saleDate length] < 1 );
+    
+    if ( (tieneAsientosDisponibles) && (estaEnVenta) ) {
+        [self performSegueWithIdentifier:@"detailSegue" sender:nil];
+        
+    } else  if (! tieneAsientosDisponibles){
+        NSLog(@"No Hay Asientos Disponibles");
+        
+    } else if (! estaEnVenta){
+        NSLog(@"No esta a la venta");
+    }
 }
 
 
@@ -152,7 +182,7 @@
     
 }
 
-#pragma mark - Search Filers methods
+#pragma mark - Search Filter methods
 - (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope{
     
     NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"nombre contains[c] %@", searchText];
@@ -218,6 +248,8 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+   
+    /*
     NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
     
     
@@ -234,7 +266,8 @@
         indexPath = [self.tableView indexPathForSelectedRow];
         itemAgenda = [app.agenda objectAtIndex:indexPath.row];
     }
-    
+    */
+     
     
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
@@ -242,7 +275,7 @@
         detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
 
     } else{
-        NSLog(@"Se abrio un Segue no identificado");
+    NSLog(@"Se abrio un Segue no identificado");
     }
 }
 
@@ -253,16 +286,20 @@
     // If you don't hide your search bar in your app, don’t include this, as it would be redundant
     //[self.searchDisplayController.searchBar becomeFirstResponder];
     
-    if (self.searchDisplayController.isActive || (self.tableView.contentOffset.y < 44)) {
-        if (self.searchDisplayController.isActive) {
-            self.searchDisplayController.searchBar.text = nil;
-            [self.searchDisplayController setActive:NO animated:YES];
-            [self.tableView reloadData];
-        }
-        [self.tableView setContentOffset:CGPointMake(0, 44)];
-    } else {
+    //if (self.searchDisplayController.isActive || (self.tableView.contentOffset.y < 22)) {
+      //  if (self.searchDisplayController.isActive) {
+        //    self.searchDisplayController.searchBar.text = nil;
+          //  [self.searchDisplayController setActive:NO animated:YES];
+            //[self.tableView reloadData];
+    //    }
+        //[self.tableView setContentOffset:CGPointMake(0, 34)];
+   // } else {
         [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    }
+    [self.searchDisplayController setActive:YES];
+    self.searchBar.hidden = NO;
+    [self.searchBar becomeFirstResponder];
+    
+    //}
 }
 
 

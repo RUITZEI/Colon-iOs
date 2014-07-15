@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Constants.h"
 
-@interface Colon360ViewController : UIViewController
+@interface ProgramaViewController : UIViewController
 <UIWebViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

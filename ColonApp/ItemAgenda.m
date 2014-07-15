@@ -10,6 +10,6 @@
 
 @implementation ItemAgenda
 
-@synthesize nombre, tipo, fecha, link, logoId, disponibilidad, itemId;
+@synthesize nombre, tipo, fecha, link, logoId, disponibilidad, saleDate, itemId;
 
 @end

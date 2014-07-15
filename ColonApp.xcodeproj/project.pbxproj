@@ -21,6 +21,7 @@
 		AB094DA61964941500D0E3D0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB094D881964941500D0E3D0 /* UIKit.framework */; };
 		AB094DAE1964941500D0E3D0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AB094DAC1964941500D0E3D0 /* InfoPlist.strings */; };
 		AB094DB01964941500D0E3D0 /* ColonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB094DAF1964941500D0E3D0 /* ColonAppTests.m */; };
+		AB09C455197574B300910E1D /* TourVirtualViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB09C454197574B300910E1D /* TourVirtualViewController.m */; };
 		AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191C19649501007A3F6E /* ItemAgenda.m */; };
 		AB5B19201964967B007A3F6E /* ColonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191F1964967B007A3F6E /* ColonParser.m */; };
 		AB5B1923196498CE007A3F6E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1922196498CE007A3F6E /* Constants.m */; };
@@ -31,7 +32,7 @@
 		AB63317B1965E3040004E6FA /* availability_limited.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331771965E3040004E6FA /* availability_limited.png */; };
 		AB63317C1965E3040004E6FA /* availability_sold_out.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331781965E3040004E6FA /* availability_sold_out.png */; };
 		AB645343197040B700FDA3E7 /* background_colon.png in Resources */ = {isa = PBXBuildFile; fileRef = AB645342197040B700FDA3E7 /* background_colon.png */; };
-		AB64534619705AA600FDA3E7 /* Colon360ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64534519705AA600FDA3E7 /* Colon360ViewController.m */; };
+		AB64534619705AA600FDA3E7 /* ProgramaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB64534519705AA600FDA3E7 /* ProgramaViewController.m */; };
 		AB6CE77D196AF34200F4431D /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77C196AF34200F4431D /* SDWebImage.framework */; };
 		AB6CE77F196AF5FA00F4431D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77E196AF5FA00F4431D /* ImageIO.framework */; };
 		AB6DE77F19672710004B5CB3 /* degrade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6DE77E19672710004B5CB3 /* degrade.png */; };
@@ -71,6 +72,8 @@
 		AB094DAB1964941500D0E3D0 /* ColonAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ColonAppTests-Info.plist"; sourceTree = "<group>"; };
 		AB094DAD1964941500D0E3D0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AB094DAF1964941500D0E3D0 /* ColonAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ColonAppTests.m; sourceTree = "<group>"; };
+		AB09C453197574B300910E1D /* TourVirtualViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TourVirtualViewController.h; sourceTree = "<group>"; };
+		AB09C454197574B300910E1D /* TourVirtualViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TourVirtualViewController.m; sourceTree = "<group>"; };
 		AB5B191B19649501007A3F6E /* ItemAgenda.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemAgenda.h; sourceTree = "<group>"; };
 		AB5B191C19649501007A3F6E /* ItemAgenda.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemAgenda.m; sourceTree = "<group>"; };
 		AB5B191E1964967B007A3F6E /* ColonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColonParser.h; sourceTree = "<group>"; };
@@ -84,8 +87,8 @@
 		AB6331771965E3040004E6FA /* availability_limited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_limited.png; sourceTree = "<group>"; };
 		AB6331781965E3040004E6FA /* availability_sold_out.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_sold_out.png; sourceTree = "<group>"; };
 		AB645342197040B700FDA3E7 /* background_colon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background_colon.png; sourceTree = "<group>"; };
-		AB64534419705AA600FDA3E7 /* Colon360ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colon360ViewController.h; sourceTree = "<group>"; };
-		AB64534519705AA600FDA3E7 /* Colon360ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colon360ViewController.m; sourceTree = "<group>"; };
+		AB64534419705AA600FDA3E7 /* ProgramaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProgramaViewController.h; sourceTree = "<group>"; };
+		AB64534519705AA600FDA3E7 /* ProgramaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgramaViewController.m; sourceTree = "<group>"; };
 		AB6CE77C196AF34200F4431D /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SDWebImage.framework; sourceTree = "<group>"; };
 		AB6CE77E196AF5FA00F4431D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		AB6DE77E19672710004B5CB3 /* degrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degrade.png; sourceTree = "<group>"; };
@@ -229,8 +232,10 @@
 				ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */,
 				AB8D10CD196B0EC300CA59BB /* ItemDetailViewController.h */,
 				AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */,
-				AB64534419705AA600FDA3E7 /* Colon360ViewController.h */,
-				AB64534519705AA600FDA3E7 /* Colon360ViewController.m */,
+				AB64534419705AA600FDA3E7 /* ProgramaViewController.h */,
+				AB64534519705AA600FDA3E7 /* ProgramaViewController.m */,
+				AB09C453197574B300910E1D /* TourVirtualViewController.h */,
+				AB09C454197574B300910E1D /* TourVirtualViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -361,12 +366,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AB64534619705AA600FDA3E7 /* Colon360ViewController.m in Sources */,
+				AB64534619705AA600FDA3E7 /* ProgramaViewController.m in Sources */,
 				ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */,
 				AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */,
 				ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */,
 				AB094D951964941500D0E3D0 /* AppDelegate.m in Sources */,
 				AB8D10CF196B0EC300CA59BB /* ItemDetailViewController.m in Sources */,
+				AB09C455197574B300910E1D /* TourVirtualViewController.m in Sources */,
 				AB6DE786196731AF004B5CB3 /* UIColor+RGBValue.m in Sources */,
 				AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */,
 				AB5B19201964967B007A3F6E /* ColonParser.m in Sources */,

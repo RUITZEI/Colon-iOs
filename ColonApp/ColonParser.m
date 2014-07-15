@@ -80,6 +80,9 @@
         }else if ([elementName isEqualToString:ATT_LOGOID]){
             [itemAgenda setValue:currentElementValue forKey:@"logoId"];
         }
+        else if ([elementName isEqualToString:ATT_SALE_DATE]){
+            [itemAgenda setValue:currentElementValue forKey:@"saleDate"];
+        }
         
         
         currentElementValue = nil;

@@ -39,6 +39,7 @@
     }
     
     [self inicializarTablaDisponibilidad];
+    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
     
     //[self.window makeKeyAndVisible];
         
