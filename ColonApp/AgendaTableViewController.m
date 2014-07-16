@@ -37,12 +37,39 @@
     
     app = [[UIApplication sharedApplication] delegate];
     
-    [self.tableView reloadData];
+    
+    
+    /* Si llegue a bajarme la agenda, la muestro, sino vuelvo
+       a intentar descargarla en segundo plano y actualizo la table.
+    */
+    if ([self.app.agenda count] < 1) {
+        NSLog(@"No se habia parseado");
+        [self parsearXML];
+    } else {
+        NSLog(@"Ya se habia parseado el RSS /n Recargo la tabla");
+        [self.tableView reloadData];
+    }
+    
     
     [self.tableView setContentOffset:CGPointMake(0, 44)];
     
     
-    [self cargarFiltros];
+    //[self cargarFiltros];
+    
+    UIBarButtonItem *optionsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(openFilters:)];
+    
+    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
+    
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch:)];
+    
+    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:optionsButton, refreshButton,searchButton, nil];
+    
+    self.navigationItem.rightBarButtonItems = myButtonArray;
+    
+    
+    
+    
+    
     
     
     // Hide the search bar until user scrolls up
@@ -300,6 +327,28 @@
     [self.searchBar becomeFirstResponder];
     
     //}
+}
+
+- (IBAction)refresh:(id)sender{
+    NSLog(@"Refresh Button Clicked");
+    //[self.app backgroundParser];
+    //[self.tableView reloadData];
+    [self parsearXML];
+}
+
+- (IBAction)openFilters:(id)sender{
+    NSLog(@"Filter button Clicked");
+}
+
+- (void) parsearXML{
+    NSLog(@"Parseando en segundo plano desde Agenda");
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.app parsear];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"Termino");
+            [self.tableView reloadData];
+        });
+    });
 }
 
 

@@ -14,4 +14,7 @@
 @property (strong, nonatomic) NSMutableArray *agenda;
 @property (nonatomic, strong) NSMutableDictionary *tablaDisponibilidad;
 
+- (BOOL) parsear;
+- (void) backgroundParser;
+
 @end

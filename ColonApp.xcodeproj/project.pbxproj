@@ -509,7 +509,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
 				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-force_load",
 					SDWebImage.framework/Versions/Current/SDWebImage,
@@ -532,7 +532,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ColonApp/ColonApp-Prefix.pch";
 				INFOPLIST_FILE = "ColonApp/ColonApp-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_LDFLAGS = (
 					"-force_load",
 					SDWebImage.framework/Versions/Current/SDWebImage,

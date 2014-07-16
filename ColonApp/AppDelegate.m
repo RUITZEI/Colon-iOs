@@ -18,6 +18,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+
+    [self backgroundParser];
+    [self inicializarTablaDisponibilidad];
+    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
+    
+    [self inicializarTabs];
+    
+    //[self.window makeKeyAndVisible];
+        
+    
+    
+    // Override point for customization after application launch.
+    return YES;
+}
+
+- (void) backgroundParser{
+    NSLog(@"Intentando parsear desde AppDelegate");
+    [NSThread detachNewThreadSelector:@selector(parsear) toTarget:self withObject:nil];
+}
+
+- (BOOL) parsear{
+    
     NSURL *url = [[NSURL alloc] initWithString:URL_RSS_COLON];
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
     
@@ -33,20 +55,13 @@
         NSLog(@" # items agenda: %i", [agenda count]);
         ItemAgenda *unItem = [[ItemAgenda alloc] init];
         unItem = [ agenda objectAtIndex:1];
-        NSLog(@"Nombre: %@ \n Fecha: %@ \n Link: %@ \n" , unItem.nombre, unItem.fecha, unItem.link);
+        NSLog(@"Segundo Elemento: \n Nombre: %@ \n Fecha: %@ \n Link: %@ \n Imagen: %@" , unItem.nombre, unItem.fecha, unItem.link, unItem.logoId);
     }else{
         NSLog(@"No Funciono...");
     }
     
-    [self inicializarTablaDisponibilidad];
-    [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
+    return worked;
     
-    //[self.window makeKeyAndVisible];
-        
-    
-    
-    // Override point for customization after application launch.
-    return YES;
 }
 
 
@@ -61,6 +76,41 @@
         [tablaDisponibilidad setValue:@"availability_limited.png" forKey:@"L"];
         [tablaDisponibilidad setValue:@"availability_sold_out.png" forKey:@"S"];
     }
+}
+
+- (void) inicializarTabs{
+    // Assign tab bar item with titles
+   // UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    //UITabBar *tabBar = tabBarController.tabBar;
+    //UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    //UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    //UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    //UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    
+    //tabBarItem1.title = @"Home";
+    //tabBarItem2.title = @"Maps";
+    //tabBarItem3.title = @"My Plan";
+    //tabBarItem4.title = @"Settings";
+    
+    //[tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
+    //[tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
+    //[tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"myplan_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"myplan.png"]];
+    //[tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
+    
+    
+    // Change the tab bar background
+    //UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    //[[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+    
+    // Change the title color of tab bar items
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                                       [UIColor grayColor], NSForegroundColorAttributeName,
+                                                       nil] forState:UIControlStateNormal];
+    
+[[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
+
+    
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
