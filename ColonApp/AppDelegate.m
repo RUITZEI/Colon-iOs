@@ -55,7 +55,7 @@
         NSLog(@" # items agenda: %i", [agenda count]);
         ItemAgenda *unItem = [[ItemAgenda alloc] init];
         unItem = [ agenda objectAtIndex:1];
-        NSLog(@"Segundo Elemento: \n Nombre: %@ \n Fecha: %@ \n Link: %@ \n Imagen: %@" , unItem.nombre, unItem.fecha, unItem.link, unItem.logoId);
+        NSLog(@"Segundo Elemento: \n Nombre: %@ \n Fecha: %@ \n Link: %@ \n Imagen: %@ \n Tipo: %@" , unItem.nombre, unItem.fecha, unItem.link, unItem.logoId, unItem.tipo);
     }else{
         NSLog(@"No Funciono...");
     }

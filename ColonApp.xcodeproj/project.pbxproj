@@ -37,6 +37,8 @@
 		AB6CE77F196AF5FA00F4431D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB6CE77E196AF5FA00F4431D /* ImageIO.framework */; };
 		AB6DE77F19672710004B5CB3 /* degrade.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6DE77E19672710004B5CB3 /* degrade.png */; };
 		AB6DE786196731AF004B5CB3 /* UIColor+RGBValue.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */; };
+		AB7E1F1A197D86A8008C1C97 /* FiltersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1F19197D86A8008C1C97 /* FiltersViewController.m */; };
+		AB7E1F1D197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB7E1F1C197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.m */; };
 		AB8D10CF196B0EC300CA59BB /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */; };
 		ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */; };
 		ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855C11965C6DC00CC5496 /* CustomCell.m */; };
@@ -94,6 +96,10 @@
 		AB6DE77E19672710004B5CB3 /* degrade.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = degrade.png; sourceTree = "<group>"; };
 		AB6DE784196731AF004B5CB3 /* UIColor+RGBValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RGBValue.h"; sourceTree = "<group>"; };
 		AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RGBValue.m"; sourceTree = "<group>"; };
+		AB7E1F18197D86A8008C1C97 /* FiltersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiltersViewController.h; sourceTree = "<group>"; };
+		AB7E1F19197D86A8008C1C97 /* FiltersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FiltersViewController.m; sourceTree = "<group>"; };
+		AB7E1F1B197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaFiltradaTableTableViewController.h; sourceTree = "<group>"; };
+		AB7E1F1C197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaFiltradaTableTableViewController.m; sourceTree = "<group>"; };
 		AB8D10CD196B0EC300CA59BB /* ItemDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemDetailViewController.h; sourceTree = "<group>"; };
 		AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemDetailViewController.m; sourceTree = "<group>"; };
 		ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaTableViewController.h; sourceTree = "<group>"; };
@@ -165,16 +171,14 @@
 			isa = PBXGroup;
 			children = (
 				ABE82AF5196C46C300B0FBC6 /* Utilitarios */,
+				AB7E1F20197DAEA0008C1C97 /* itemCelda */,
+				AB7E1F1F197DAE4F008C1C97 /* Celda */,
 				ABE82AF3196C462B00B0FBC6 /* Constantes */,
 				ABE82AF2196C460600B0FBC6 /* Controllers */,
 				AB094D931964941500D0E3D0 /* AppDelegate.h */,
 				AB094D941964941500D0E3D0 /* AppDelegate.m */,
-				AB5B191B19649501007A3F6E /* ItemAgenda.h */,
-				AB5B191C19649501007A3F6E /* ItemAgenda.m */,
 				AB094D961964941500D0E3D0 /* Main.storyboard */,
 				AB094D9C1964941500D0E3D0 /* Images.xcassets */,
-				ABD855C01965C6DC00CC5496 /* CustomCell.h */,
-				ABD855C11965C6DC00CC5496 /* CustomCell.m */,
 				AB094D8B1964941500D0E3D0 /* Supporting Files */,
 			);
 			path = ColonApp;
@@ -223,9 +227,39 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		AB7E1F1E197DADCF008C1C97 /* Filtrables */ = {
+			isa = PBXGroup;
+			children = (
+				AB7E1F18197D86A8008C1C97 /* FiltersViewController.h */,
+				AB7E1F19197D86A8008C1C97 /* FiltersViewController.m */,
+				AB7E1F1B197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.h */,
+				AB7E1F1C197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.m */,
+			);
+			name = Filtrables;
+			sourceTree = "<group>";
+		};
+		AB7E1F1F197DAE4F008C1C97 /* Celda */ = {
+			isa = PBXGroup;
+			children = (
+				ABD855C01965C6DC00CC5496 /* CustomCell.h */,
+				ABD855C11965C6DC00CC5496 /* CustomCell.m */,
+			);
+			name = Celda;
+			sourceTree = "<group>";
+		};
+		AB7E1F20197DAEA0008C1C97 /* itemCelda */ = {
+			isa = PBXGroup;
+			children = (
+				AB5B191B19649501007A3F6E /* ItemAgenda.h */,
+				AB5B191C19649501007A3F6E /* ItemAgenda.m */,
+			);
+			name = itemCelda;
+			sourceTree = "<group>";
+		};
 		ABE82AF2196C460600B0FBC6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AB7E1F1E197DADCF008C1C97 /* Filtrables */,
 				AB094D991964941500D0E3D0 /* ViewController.h */,
 				AB094D9A1964941500D0E3D0 /* ViewController.m */,
 				ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */,
@@ -371,7 +405,9 @@
 				AB094D9B1964941500D0E3D0 /* ViewController.m in Sources */,
 				ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */,
 				AB094D951964941500D0E3D0 /* AppDelegate.m in Sources */,
+				AB7E1F1D197D92DD008C1C97 /* AgendaFiltradaTableTableViewController.m in Sources */,
 				AB8D10CF196B0EC300CA59BB /* ItemDetailViewController.m in Sources */,
+				AB7E1F1A197D86A8008C1C97 /* FiltersViewController.m in Sources */,
 				AB09C455197574B300910E1D /* TourVirtualViewController.m in Sources */,
 				AB6DE786196731AF004B5CB3 /* UIColor+RGBValue.m in Sources */,
 				AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */,

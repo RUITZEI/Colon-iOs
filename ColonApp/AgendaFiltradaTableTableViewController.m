@@ -1,0 +1,153 @@
+//
+//  AgendaFiltradaTableTableViewController.m
+//  ColonApp
+//
+//  Created by Manuel Ruiz on 7/21/14.
+//  Copyright (c) 2014 Ruitzei. All rights reserved.
+//
+
+#import "AgendaFiltradaTableTableViewController.h"
+#import "CustomCell.h"
+#import "ItemDetailViewController.h"
+
+
+@interface AgendaFiltradaTableTableViewController ()
+
+@end
+
+@implementation AgendaFiltradaTableTableViewController
+
+@synthesize itemsAgendaFiltrados;
+@synthesize itemAgenda;
+@synthesize app;
+
+
+
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    app = [[UIApplication sharedApplication] delegate];
+    
+    NSLog(@"Cantidadd Items a mostrar: %i", self.itemsAgendaFiltrados.count);
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    //Ojo, este numero hay que ponerlo manualmente para que no se cague con el searchviw.
+    return 105;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.itemsAgendaFiltrados count];
+    
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    
+
+    CustomCell *cell = (CustomCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[CustomCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+    
+    
+    itemAgenda = [self.itemsAgendaFiltrados objectAtIndex:indexPath.row];
+
+    [cell asignarNombre:itemAgenda.nombre];
+    [cell asignarTipo:itemAgenda.tipo];
+    [cell asignarFecha:itemAgenda.fecha];
+    [cell asignarImagenConLink:itemAgenda.logoId];
+    [cell asignariconoDisponibilidad:[app.tablaDisponibilidad valueForKey:itemAgenda.disponibilidad]];
+    
+    
+    cell.backgroundColor = (indexPath.row%2)
+    ? [UIColor darkGreyColorForCell]
+    : [UIColor blackColorForCell];
+    
+    
+    
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.accessoryView.backgroundColor = [UIColor redColor];
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    itemAgenda = [self.itemsAgendaFiltrados objectAtIndex:indexPath.row];
+    
+    
+    BOOL tieneAsientosDisponibles = ![itemAgenda.disponibilidad isEqualToString:@"S"];
+    BOOL estaEnVenta = ([itemAgenda.saleDate length] < 1 );
+    
+    if ( (tieneAsientosDisponibles) && (estaEnVenta) ) {
+        [self performSegueWithIdentifier:@"detailSegue" sender:nil];
+        
+    } else  if (! tieneAsientosDisponibles){
+        NSLog(@"No Hay Asientos Disponibles");
+        
+    } else if (! estaEnVenta){
+        NSLog(@"No esta a la venta");
+    }
+}
+
+
+
+#pragma mark - Miscelaneos
+
+- (void) asignarIconoEnCelda:(CustomCell *)celda conDisponibilidad:(NSString *)disponibilidad{
+
+    celda.customDisponibilidad.image = [UIImage imageNamed: [app.tablaDisponibilidad valueForKey:disponibilidad]];
+}
+
+
+
+#pragma mark - Navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+
+    if ([segue.identifier isEqualToString:@"detailSegue"]) {
+        NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
+        ItemDetailViewController *detailView = [segue destinationViewController];
+        detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
+        
+    } else {
+        NSLog(@"Se abrio un Segue no identificado");
+    }
+}
+
+
+
+
+@end

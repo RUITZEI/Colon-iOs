@@ -21,8 +21,6 @@
 @property IBOutlet UISearchBar *searchBar;
 
 
-- (IBAction)goToSearch:(id)sender;
-- (IBAction)refresh:(id)sender;
 - (IBAction)openFilters:(id)sender;
 
 

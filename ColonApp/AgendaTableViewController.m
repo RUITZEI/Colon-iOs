@@ -39,6 +39,7 @@
     
     
     
+    
     /* Si llegue a bajarme la agenda, la muestro, sino vuelvo
        a intentar descargarla en segundo plano y actualizo la table.
     */
@@ -46,27 +47,22 @@
         NSLog(@"No se habia parseado");
         [self parsearXML];
     } else {
-        NSLog(@"Ya se habia parseado el RSS /n Recargo la tabla");
+        NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
         [self.tableView reloadData];
     }
     
     
-    [self.tableView setContentOffset:CGPointMake(0, 44)];
+    //Pull to refresh
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    
+    //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    
+    [refresh addTarget:self action:@selector(parsearXML)
+     
+      forControlEvents:UIControlEventValueChanged];
     
     
-    //[self cargarFiltros];
-    
-    UIBarButtonItem *optionsButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(openFilters:)];
-    
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh target:self action:@selector(refresh:)];
-    
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(goToSearch:)];
-    
-    NSArray *myButtonArray = [[NSArray alloc] initWithObjects:optionsButton, refreshButton,searchButton, nil];
-    
-    self.navigationItem.rightBarButtonItems = myButtonArray;
-    
-    
+    self.refreshControl = refresh;
     
     
     
@@ -81,8 +77,8 @@
 }
 
 - (void) cargarFiltros{
-    NSString *path = [[NSBundle mainBundle] pathForResource:
-                      @"clavesFiltros" ofType:@"plist"];
+  //  NSString *path = [[NSBundle mainBundle] pathForResource:
+    //                  @"clavesFiltros" ofType:@"plist"];
     
     /*
     NSArray *testArray = [[NSArray alloc] initWithContentsOfFile:path ];
@@ -92,7 +88,7 @@
     }
     */
     
-    [self.searchBar setScopeButtonTitles: [NSArray arrayWithContentsOfFile:path]];
+    //[self.searchBar setScopeButtonTitles: [NSArray arrayWithContentsOfFile:path]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,6 +119,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *CellIdentifier = @"Cell";
     
     CustomCell *cell = (CustomCell *)[self.tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -301,8 +298,10 @@
         ItemDetailViewController *detailView = [segue destinationViewController];
         detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
 
-    } else{
-    NSLog(@"Se abrio un Segue no identificado");
+    } else if ([segue.identifier isEqualToString:@"filterSegue"]){
+        NSLog(@"Abriendo los filtros");
+    } else {
+         NSLog(@"Se abrio un Segue no identificado");
     }
 }
 
@@ -321,7 +320,7 @@
     //    }
         //[self.tableView setContentOffset:CGPointMake(0, 34)];
    // } else {
-        [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
+    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     [self.searchDisplayController setActive:YES];
     self.searchBar.hidden = NO;
     [self.searchBar becomeFirstResponder];
@@ -329,12 +328,7 @@
     //}
 }
 
-- (IBAction)refresh:(id)sender{
-    NSLog(@"Refresh Button Clicked");
-    //[self.app backgroundParser];
-    //[self.tableView reloadData];
-    [self parsearXML];
-}
+#pragma mark - Open Filters
 
 - (IBAction)openFilters:(id)sender{
     NSLog(@"Filter button Clicked");
@@ -346,9 +340,21 @@
         [self.app parsear];
         dispatch_sync(dispatch_get_main_queue(), ^{
             NSLog(@"Termino");
+            //No llamo al reloadData porque el refresh se encarga de eso
             [self.tableView reloadData];
+            if ( [self.refreshControl isRefreshing ] ){
+                [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
+            }
         });
     });
+}
+
+- (void)stopRefresh
+{
+    NSLog(@"Refresh stopped.");
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    
 }
 
 
