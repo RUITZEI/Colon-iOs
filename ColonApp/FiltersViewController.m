@@ -31,15 +31,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
     
     //Cargo referencia al appDelegate
     app = [[UIApplication sharedApplication] delegate];
     
-    
     //Cargo los distintos tipos de filtros.
     [self cargarFiltros];
+    
+    //Color de fondo.
+    self.view.backgroundColor = [UIColor darkGreyColorForCell];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,7 +67,7 @@
         NSLog(@"Seleccionado : %@", cell.textLabel.text);
         
         
-        //Aca arranca el kilombo de filtrar todo bien
+        //Filtrando eventos cuyo tipo sea...
         NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"tipo contains[c] %@", cell.textLabel.text];
         
         filteredView.itemsAgendaFiltrados = [self.app.agenda filteredArrayUsingPredicate:resultPredicate];
@@ -81,7 +82,7 @@
 }
 
 
-#pragma mark - Lazy instantiation.
+#pragma mark - filtros Lazy instantiation.
 - (NSArray *) filtros{
     if (!filtros) {
         NSString *path = [[NSBundle mainBundle] pathForResource:
@@ -89,11 +90,12 @@
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
             self.filtros = [[NSArray alloc] initWithContentsOfFile:path ];
+            NSLog(@"Creado el array de filtros");
         } else{
             NSLog(@"No existe el archivo %@", path);
         }
     }
-    
+    NSLog(@"Devolviendo los filtros");
     return filtros;
 }
 
@@ -128,6 +130,9 @@
     
     
     claveFiltro = [self.filtros objectAtIndex:indexPath.row];
+    
+    //Fondo de las celdas gris oscuro.
+    [cell setBackgroundColor:[UIColor darkGreyColorForCell]];
 
     cell.textLabel.text = claveFiltro;
     

@@ -15,7 +15,7 @@
                         <color key="tintColor" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" text="" placeholder="Nombre de la funcion..." id="q8a-06-D4H">
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="prominent" text="" placeholder="Buscar por nombre..." id="q8a-06-D4H">
                             <rect key="frame" x="0.0" y="64" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,7 +94,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Cartelera" id="k4P-Ak-EHw">
-                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="nmR-IU-L3w">
+                        <barButtonItem key="rightBarButtonItem" image="icono-filtro.png" id="nmR-IU-L3w">
                             <connections>
                                 <action selector="openFilters:" destination="aUH-Rd-wd6" id="a4g-BU-613"/>
                                 <segue destination="IEX-cG-vI1" kind="push" identifier="filterSegue" id="Vjd-x8-oTf"/>
@@ -228,11 +228,12 @@
                                             <rect key="frame" x="15" y="0.0" width="270" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <segue destination="BkS-Ia-gG7" kind="push" identifier="AgendaFiltradaSegue" id="LJL-h3-rL9"/>
                                 </connections>
@@ -447,6 +448,7 @@
     </scenes>
     <resources>
         <image name="degrade.png" width="200" height="36"/>
+        <image name="icono-filtro.png" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

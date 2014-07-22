@@ -36,9 +36,14 @@
 {
     [super viewDidLoad];
     
+    //Referencia al app delegate.
     app = [[UIApplication sharedApplication] delegate];
     
+    //Color de fondo.
+    self.view.backgroundColor = [UIColor darkGreyColorForCell];
+
     NSLog(@"Cantidadd Items a mostrar: %i", self.itemsAgendaFiltrados.count);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,7 +87,7 @@
     itemAgenda = [self.itemsAgendaFiltrados objectAtIndex:indexPath.row];
 
     [cell asignarNombre:itemAgenda.nombre];
-    [cell asignarTipo:itemAgenda.tipo];
+    //[cell asignarTipo:itemAgenda.tipo];
     [cell asignarFecha:itemAgenda.fecha];
     [cell asignarImagenConLink:itemAgenda.logoId];
     [cell asignariconoDisponibilidad:[app.tablaDisponibilidad valueForKey:itemAgenda.disponibilidad]];
@@ -135,8 +140,6 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
         ItemDetailViewController *detailView = [segue destinationViewController];

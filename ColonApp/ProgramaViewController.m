@@ -30,13 +30,11 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [super viewDidLoad];
     NSLog(@"seteando delegate del Programa Colon");
     [webView setDelegate:self];
+    
 
-    NSURL *url = [NSURL URLWithString:PROGRAMA_COLON];
-    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [webView loadRequest:requestObj];
+    [self cargarPrograma];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,11 +48,7 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     
     NSLog(@"Comenzo a cargar el sitio");
-    //spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    //spinner.center = CGPointMake(160, 240);
-    //spinner.tag = 12;
     [spinner startAnimating];
-    //[self.view addSubview:spinner];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
@@ -79,5 +73,12 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Link en Browser
+- (void) cargarPrograma{
+    NSURL *url = [NSURL URLWithString:PROGRAMA_COLON];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+}
 
 @end

@@ -38,58 +38,16 @@
     app = [[UIApplication sharedApplication] delegate];
     
     
+    [self cargarPrograma];
+    
+    [self agregarPullToRefresh];
     
     
-    /* Si llegue a bajarme la agenda, la muestro, sino vuelvo
-       a intentar descargarla en segundo plano y actualizo la table.
-    */
-    if ([self.app.agenda count] < 1) {
-        NSLog(@"No se habia parseado");
-        [self parsearXML];
-    } else {
-        NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
-        [self.tableView reloadData];
-    }
-    
-    
-    //Pull to refresh
-    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    
-    //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
-    
-    [refresh addTarget:self action:@selector(parsearXML)
-     
-      forControlEvents:UIControlEventValueChanged];
-    
-    
-    self.refreshControl = refresh;
-    
-    
-    
-    
-    
-    // Hide the search bar until user scrolls up
-    /*
-    CGRect newBounds = self.tableView.bounds;
-    newBounds.origin.y = newBounds.origin.y + self.searchDisplayController.searchBar.bounds.size.height;
-    self.tableView.bounds = newBounds;
-    */
+    //Esto cambia el color del fondo de la tableView.
+    self.view.backgroundColor = [UIColor darkGreyColorForCell];
+
 }
 
-- (void) cargarFiltros{
-  //  NSString *path = [[NSBundle mainBundle] pathForResource:
-    //                  @"clavesFiltros" ofType:@"plist"];
-    
-    /*
-    NSArray *testArray = [[NSArray alloc] initWithContentsOfFile:path ];
-    
-    for (NSString *str in testArray) {
-        NSLog(@"--%@", str);
-    }
-    */
-    
-    //[self.searchBar setScopeButtonTitles: [NSArray arrayWithContentsOfFile:path]];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -137,9 +95,6 @@
     
     
     
-    //itemAgenda = [app.agenda objectAtIndex:indexPath.row];
-    
-    
     //Selector Color.
     
     /*
@@ -162,7 +117,7 @@
     
      
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.accessoryView.backgroundColor = [UIColor redColor];
+    //cell.accessoryView.backgroundColor = [UIColor redColor];
     
     return cell;
 }
@@ -222,49 +177,8 @@
     
     
     
-    //NSLog(@"Escribi: %@", searchString);
-    
     return YES;
 }
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -272,26 +186,6 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-   
-    /*
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
-    
-    
-    
-    // Si estaba activa la busqueda hay que cambiar el indexPath para que no
-    // quede con las referencias cambiadas.
-    
-    if (self.searchDisplayController.active) {
-        indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-        itemAgenda = [resultadosBusqueda objectAtIndex:indexPath.row];
-        
-    } else {
-        
-        indexPath = [self.tableView indexPathForSelectedRow];
-        itemAgenda = [app.agenda objectAtIndex:indexPath.row];
-    }
-    */
-     
     
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
@@ -306,27 +200,6 @@
 }
 
 
-#pragma  mark - Search Button
--(IBAction)goToSearch:(id)sender {
-    // If you're worried that your users might not catch on to the fact that a search bar is available if they scroll to reveal it, a search icon will help them
-    // If you don't hide your search bar in your app, don’t include this, as it would be redundant
-    //[self.searchDisplayController.searchBar becomeFirstResponder];
-    
-    //if (self.searchDisplayController.isActive || (self.tableView.contentOffset.y < 22)) {
-      //  if (self.searchDisplayController.isActive) {
-        //    self.searchDisplayController.searchBar.text = nil;
-          //  [self.searchDisplayController setActive:NO animated:YES];
-            //[self.tableView reloadData];
-    //    }
-        //[self.tableView setContentOffset:CGPointMake(0, 34)];
-   // } else {
-    [self.tableView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
-    [self.searchDisplayController setActive:YES];
-    self.searchBar.hidden = NO;
-    [self.searchBar becomeFirstResponder];
-    
-    //}
-}
 
 #pragma mark - Open Filters
 
@@ -340,7 +213,6 @@
         [self.app parsear];
         dispatch_sync(dispatch_get_main_queue(), ^{
             NSLog(@"Termino");
-            //No llamo al reloadData porque el refresh se encarga de eso
             [self.tableView reloadData];
             if ( [self.refreshControl isRefreshing ] ){
                 [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
@@ -355,6 +227,32 @@
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     
+}
+
+#pragma mark - Inicializadores
+
+/*    Si llegue a bajarme la agenda, la muestro, sino vuelvo
+      a intentar descargarla en segundo plano y actualizo la table.
+ */
+- (void) cargarPrograma{
+    if ([self.app.agenda count] < 1) {
+        NSLog(@"No se habia parseado");
+        [self parsearXML];
+    } else {
+        NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
+        [self.tableView reloadData];
+    }
+}
+
+- (void) agregarPullToRefresh{
+    
+    UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
+    
+    //refresh.attributedTitle = [[NSAttributedString alloc] initWithString:@"Pull to Refresh"];
+    [refresh addTarget:self action:@selector(parsearXML)
+      forControlEvents:UIControlEventValueChanged];
+    
+    self.refreshControl = refresh;
 }
 
 

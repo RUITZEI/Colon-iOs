@@ -26,10 +26,6 @@
     [self inicializarTabs];
     
     //[self.window makeKeyAndVisible];
-        
-    
-    
-    // Override point for customization after application launch.
     return YES;
 }
 
@@ -80,28 +76,26 @@
 
 - (void) inicializarTabs{
     // Assign tab bar item with titles
-   // UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
-    //UITabBar *tabBar = tabBarController.tabBar;
-    //UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-    //UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-    //UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-    //UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+   // 1- Home    2- Programa     3-Cartelera      4- 360
     
-    //tabBarItem1.title = @"Home";
-    //tabBarItem2.title = @"Maps";
-    //tabBarItem3.title = @"My Plan";
-    //tabBarItem4.title = @"Settings";
+    UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
+    UITabBar *tabBar = tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
     
-    //[tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"home_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"home.png"]];
-    //[tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"maps_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"maps.png"]];
-    //[tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"myplan_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"myplan.png"]];
-    //[tabBarItem4 setFinishedSelectedImage:[UIImage imageNamed:@"settings_selected.png"] withFinishedUnselectedImage:[UIImage imageNamed:@"settings.png"]];
+    //Color de fondo de las imagenes. Le pone un tint azul por default.
+    if ([UITabBar instancesRespondToSelector:@selector(setSelectedImageTintColor:)]) {
+        [tabBarController.tabBar setSelectedImageTintColor:[UIColor whiteColor]];
+    }
     
     
-    // Change the tab bar background
-    //UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-    //[[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    //[[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+    (void) [tabBarItem1 initWithTitle:@"Home" image:[UIImage imageNamed:@"icono-home.png"]  selectedImage:[UIImage imageNamed:@"icono-home_activo.png"]];
+    (void)[tabBarItem2 initWithTitle:@"Programa" image:[UIImage imageNamed:@"icono-programa.png"] selectedImage:[UIImage imageNamed:@"icono-programa_activo.png"]];
+    (void) [tabBarItem3 initWithTitle:@"Cartelera" image:[UIImage imageNamed:@"icono-cartelera.png"]  selectedImage:[UIImage imageNamed:@"icono-cartelera_activo.png"]];
+    (void) [tabBarItem4 initWithTitle:@"Colon 360" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
+    
     
     // Change the title color of tab bar items
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
