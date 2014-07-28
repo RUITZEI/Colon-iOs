@@ -19,6 +19,8 @@
 @property (nonatomic, retain) NSString *saleDate;
 @property (nonatomic, readwrite) NSInteger itemId;
 
+- (NSString *) getFechaDeVentaConvertida;
+
 
 
 @end

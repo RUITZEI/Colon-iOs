@@ -189,7 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				ABE82AF5196C46C300B0FBC6 /* Utilitarios */,
-				AB7E1F20197DAEA0008C1C97 /* itemCelda */,
+				AB7E1F20197DAEA0008C1C97 /* itemAgenda */,
 				AB7E1F1F197DAE4F008C1C97 /* Celda */,
 				ABE82AF3196C462B00B0FBC6 /* Constantes */,
 				ABE82AF2196C460600B0FBC6 /* Controllers */,
@@ -274,13 +274,13 @@
 			name = Celda;
 			sourceTree = "<group>";
 		};
-		AB7E1F20197DAEA0008C1C97 /* itemCelda */ = {
+		AB7E1F20197DAEA0008C1C97 /* itemAgenda */ = {
 			isa = PBXGroup;
 			children = (
 				AB5B191B19649501007A3F6E /* ItemAgenda.h */,
 				AB5B191C19649501007A3F6E /* ItemAgenda.m */,
 			);
-			name = itemCelda;
+			name = itemAgenda;
 			sourceTree = "<group>";
 		};
 		ABE82AF2196C460600B0FBC6 /* Controllers */ = {

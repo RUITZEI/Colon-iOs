@@ -45,6 +45,8 @@
     
     //Esto cambia el color del fondo de la tableView.
     self.view.backgroundColor = [UIColor darkGreyColorForCell];
+    [self.searchDisplayController.searchResultsTableView setBackgroundColor:[UIColor darkGreyColorForCell]];
+
 
 }
 
@@ -59,7 +61,38 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    // si existen elementos no hago nada.
+    if (self.app.agenda) {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+        [self.searchDisplayController.searchBar setHidden:NO];
+        return 1;
+        
+    } else {
+        
+        // Muestro un msg pidiendole al usuario que actualice.
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"Deslice para actualizar...";
+        messageLabel.textColor = [UIColor whiteColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        [messageLabel sizeToFit];
+        
+        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clicked)];
+        tapGestureRecognizer.numberOfTapsRequired = 1;
+        messageLabel.userInteractionEnabled = YES;
+        [messageLabel addGestureRecognizer:tapGestureRecognizer];
+        
+
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        
+        [self.searchDisplayController.searchBar setHidden:YES];
+        
+    }
+    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -143,6 +176,7 @@
         
     } else if (! estaEnVenta){
         NSLog(@"No esta a la venta");
+        NSLog(@"Las entradas salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida);
     }
 }
 
@@ -238,6 +272,7 @@
     if ([self.app.agenda count] < 1) {
         NSLog(@"No se habia parseado");
         [self parsearXML];
+//        [self.refreshControl beginRefreshing];
     } else {
         NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
         [self.tableView reloadData];
@@ -253,6 +288,11 @@
       forControlEvents:UIControlEventValueChanged];
     
     self.refreshControl = refresh;
+    self.refreshControl.backgroundColor = [UIColor whiteColor];
+}
+
+- (void) clicked{
+    NSLog(@"CLICKED");
 }
 
 

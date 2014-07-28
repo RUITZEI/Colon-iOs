@@ -276,7 +276,13 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="r54-Cg-zyL"/>
+                    <navigationItem key="navigationItem" id="r54-Cg-zyL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="rewind" id="6Om-9u-rCq">
+                            <connections>
+                                <action selector="goBack:" destination="KlY-5b-dQT" id="0hg-aT-Hs6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="spinner" destination="S7A-DH-ogu" id="x1B-aH-UMV"/>
                         <outlet property="webView" destination="2Se-dP-kcf" id="8Rx-q8-NvK"/>

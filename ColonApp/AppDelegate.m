@@ -26,7 +26,13 @@
     [self inicializarTabs];
     
     //[self.window makeKeyAndVisible];
+    
+    
+    [self parsearFecha];
+
+    
     return YES;
+    
 }
 
 - (void) backgroundParser{
@@ -105,6 +111,25 @@
 [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]} forState:UIControlStateSelected];
 
     
+}
+
+
+- (void) parsearFecha{
+    NSString *unSting = [NSString stringWithFormat:@"2014-07-29 10:00 AM"];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd h:mm a"];
+
+    
+    NSDate *fechaFormateada = [dateFormatter dateFromString:unSting];
+    
+    [dateFormatter setDateFormat:@"dd'/'MM 'a las' h:mm 'hs'"];
+     
+
+    NSLog(@"La fecha es: %@", [dateFormatter stringFromDate:fechaFormateada]);
+    
+
+
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

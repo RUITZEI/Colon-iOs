@@ -92,4 +92,15 @@
     [webView loadRequest:requestObj];
 }
 
+- (IBAction)goBack:(id)sender{
+    /*if ([self.webView canGoBack]) {
+        [self.webView goBack];
+        NSLog(@"Back Pressed");
+    }*/
+    
+    //Refresh
+    [self.webView reload];
+
+}
+
 @end
