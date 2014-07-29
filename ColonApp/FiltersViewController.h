@@ -11,9 +11,9 @@
 
 @interface FiltersViewController : UITableViewController
 
-@property (nonatomic, strong) NSArray *filtros;
 @property (nonatomic, retain) AppDelegate *app;
-
+@property (nonatomic, strong) NSDictionary *filtros;
+@property (nonatomic, strong) NSArray *sectionTitles;
 
 
 @end

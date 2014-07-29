@@ -25,7 +25,6 @@
 		AB5B191D19649501007A3F6E /* ItemAgenda.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191C19649501007A3F6E /* ItemAgenda.m */; };
 		AB5B19201964967B007A3F6E /* ColonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B191F1964967B007A3F6E /* ColonParser.m */; };
 		AB5B1923196498CE007A3F6E /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = AB5B1922196498CE007A3F6E /* Constants.m */; };
-		AB5DE6E8196F0AD30008C55E /* clavesFiltros.plist in Resources */ = {isa = PBXBuildFile; fileRef = AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */; };
 		AB6331741965DC790004E6FA /* default_logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB6331731965DC790004E6FA /* default_logo.jpg */; };
 		AB6331791965E3040004E6FA /* availability_excellent.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331751965E3040004E6FA /* availability_excellent.png */; };
 		AB63317A1965E3040004E6FA /* availability_good.png in Resources */ = {isa = PBXBuildFile; fileRef = AB6331761965E3040004E6FA /* availability_good.png */; };
@@ -51,6 +50,7 @@
 		AB8D10CF196B0EC300CA59BB /* ItemDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AB8D10CE196B0EC300CA59BB /* ItemDetailViewController.m */; };
 		ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */; };
 		ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855C11965C6DC00CC5496 /* CustomCell.m */; };
+		ABE836ED1988324C003CF7D9 /* dicArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE836EC1988324C003CF7D9 /* dicArray.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		AB5B191F1964967B007A3F6E /* ColonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColonParser.m; sourceTree = "<group>"; };
 		AB5B1921196498CE007A3F6E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AB5B1922196498CE007A3F6E /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
-		AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = clavesFiltros.plist; sourceTree = "<group>"; };
 		AB6331731965DC790004E6FA /* default_logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = default_logo.jpg; sourceTree = "<group>"; };
 		AB6331751965E3040004E6FA /* availability_excellent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_excellent.png; sourceTree = "<group>"; };
 		AB6331761965E3040004E6FA /* availability_good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = availability_good.png; sourceTree = "<group>"; };
@@ -124,6 +123,7 @@
 		ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaTableViewController.m; sourceTree = "<group>"; };
 		ABD855C01965C6DC00CC5496 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		ABD855C11965C6DC00CC5496 /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		ABE836EC1988324C003CF7D9 /* dicArray.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = dicArray.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -308,7 +308,7 @@
 				AB6DE785196731AF004B5CB3 /* UIColor+RGBValue.m */,
 				AB5B1921196498CE007A3F6E /* Constants.h */,
 				AB5B1922196498CE007A3F6E /* Constants.m */,
-				AB5DE6E7196F0AD30008C55E /* clavesFiltros.plist */,
+				ABE836EC1988324C003CF7D9 /* dicArray.plist */,
 			);
 			name = Constantes;
 			sourceTree = "<group>";
@@ -401,12 +401,12 @@
 				AB7BAE66197EBE1E00B7A8CF /* icono-360_activo@2x.png in Resources */,
 				AB7BAE68197EBE2400B7A8CF /* icono-360@2x.png in Resources */,
 				AB6331741965DC790004E6FA /* default_logo.jpg in Resources */,
+				ABE836ED1988324C003CF7D9 /* dicArray.plist in Resources */,
 				AB7BAE73197EBE3900B7A8CF /* icono-programa_activo@2x.png in Resources */,
 				AB7BAE64197EBE1900B7A8CF /* icono-filtro@2x.png in Resources */,
 				AB7BAE72197EBE3900B7A8CF /* icono-home@2x.png in Resources */,
 				AB094D9D1964941500D0E3D0 /* Images.xcassets in Resources */,
 				AB645343197040B700FDA3E7 /* background_colon.png in Resources */,
-				AB5DE6E8196F0AD30008C55E /* clavesFiltros.plist in Resources */,
 				AB7BAE6B197EBE2D00B7A8CF /* icono-cartelera_activo@2x.png in Resources */,
 				AB7BAE71197EBE3900B7A8CF /* icono-home_activo@2x.png in Resources */,
 				AB6331791965E3040004E6FA /* availability_excellent.png in Resources */,

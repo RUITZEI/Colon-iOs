@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>#</key>
+	<array>
+		<string>Opera</string>
+		<string>Ballet</string>
+		<string>Filarmonica</string>
+	</array>
+	<key>Abono</key>
+	<array>
+		<string>Gran Abono</string>
+		<string>Abono Nocturno</string>
+		<string>Abono Vespertino</string>
+		<string>Abono Estelar</string>
+	</array>
+</dict>
+</plist>

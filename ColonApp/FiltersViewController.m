@@ -15,8 +15,10 @@
 
 @implementation FiltersViewController
 
-@synthesize filtros;
+
 @synthesize app;
+@synthesize filtros;
+@synthesize sectionTitles;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +42,6 @@
     
     //Color de fondo.
     self.view.backgroundColor = [UIColor darkGreyColorForCell];
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,8 +68,8 @@
         NSLog(@"Seleccionado : %@", cell.textLabel.text);
         
         
-        //Filtrando eventos cuyo tipo sea...
-        NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"tipo contains[c] %@", cell.textLabel.text];
+        //Filtrando eventos cuyo tipo o nombre sea...
+        NSPredicate *resultPredicate = [NSPredicate predicateWithFormat:@"(tipo contains[c] %@) or (nombre contains[c] %@)", cell.textLabel.text, cell.textLabel.text];
         
         filteredView.itemsAgendaFiltrados = [self.app.agenda filteredArrayUsingPredicate:resultPredicate];
         
@@ -83,39 +84,52 @@
 
 
 #pragma mark - filtros Lazy instantiation.
-- (NSArray *) filtros{
+/*
+ Para agregar nuevos filtros, solo hay que agregar en el archivo dicArray la categoria a la cual
+ perteneceria y el nuevo filtro.
+ */
+- (NSDictionary *) filtros{
     if (!filtros) {
         NSString *path = [[NSBundle mainBundle] pathForResource:
-                          @"clavesFiltros" ofType:@"plist"];
+                          @"dicArray" ofType:@"plist"];
         
         if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-            self.filtros = [[NSArray alloc] initWithContentsOfFile:path ];
-            NSLog(@"Creado el array de filtros");
+            self.filtros = [[NSDictionary alloc] initWithContentsOfFile:path ];
+            NSLog(@"Creado el Diccio de filtros");
         } else{
             NSLog(@"No existe el archivo %@", path);
         }
     }
-    NSLog(@"Devolviendo los filtros");
+    //NSLog(@"Devolviendo los filtros");
     return filtros;
 }
 
+
+
 #pragma mark - Methods
 - (void) cargarFiltros{
-
+    self.sectionTitles = [[self.filtros allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 #pragma mark -UITableView Delegates
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    // Return the number of sections.
+    return sectionTitles.count;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return [sectionTitles objectAtIndex:section];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.filtros.count;
+    // Return the number of rows in the section.
+    NSString *sectionTitle = [sectionTitles objectAtIndex:section];
+    NSArray *sectionFilters = [self.filtros objectForKey:sectionTitle];
+    return [sectionFilters count];
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -129,7 +143,9 @@
     }
     
     
-    claveFiltro = [self.filtros objectAtIndex:indexPath.row];
+    NSString *sectionTitle = [self.sectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionFilters = [self.filtros objectForKey:sectionTitle];
+    claveFiltro = [sectionFilters objectAtIndex:indexPath.row];
     
     //Fondo de las celdas gris oscuro.
     [cell setBackgroundColor:[UIColor darkGreyColorForCell]];
@@ -144,6 +160,24 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
+//Para cambiar los colorcitos del header
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    // Background color
+    view.tintColor = [UIColor whiteColor];
+    
+    // Text Color
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    [header.textLabel setTextColor:[UIColor blackColor]];
+    
+    // Another way to set the background color
+    // Note: does not preserve gradient effect of original header
+    // header.contentView.backgroundColor = [UIColor blackColor];
+}
+
+
 
 
 @end
