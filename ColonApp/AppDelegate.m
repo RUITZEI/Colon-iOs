@@ -9,11 +9,14 @@
 #import "AppDelegate.h"
 #import "Constants.h"
 #import "ColonParser.h"
+#import <Parse/Parse.h>
 
 @implementation AppDelegate
 
+
 @synthesize agenda;
 @synthesize tablaDisponibilidad;
+@synthesize estaParseando;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -29,6 +32,14 @@
     
     
     [self parsearFecha];
+    
+    //Cosas del Parse...
+    [Parse setApplicationId:@"VMAZUcL4dQslhLyBBuQui4Shhv7igRdbUXqR0Z3w"
+                  clientKey:@"sgu55tEFLOXmu3nEdndTDNPHRUwDWcfaHRA1Co7N"];
+    
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge|
+     UIRemoteNotificationTypeAlert|
+     UIRemoteNotificationTypeSound];
 
     
     return YES;
@@ -37,6 +48,7 @@
 
 - (void) backgroundParser{
     NSLog(@"Intentando parsear desde AppDelegate");
+    self.estaParseando = YES;
     [NSThread detachNewThreadSelector:@selector(parsear) toTarget:self withObject:nil];
 }
 
@@ -62,6 +74,8 @@
         NSLog(@"No Funciono...");
     }
     
+    self.estaParseando = NO;
+    
     return worked;
     
 }
@@ -84,6 +98,7 @@
     // Assign tab bar item with titles
    // 1- Home    2- Programa     3-Cartelera      4- 360
     
+    
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabBar = tabBarController.tabBar;
     UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
@@ -100,7 +115,7 @@
     (void) [tabBarItem1 initWithTitle:@"Home" image:[UIImage imageNamed:@"icono-home.png"]  selectedImage:[UIImage imageNamed:@"icono-home_activo.png"]];
     (void)[tabBarItem2 initWithTitle:@"Programa" image:[UIImage imageNamed:@"icono-programa.png"] selectedImage:[UIImage imageNamed:@"icono-programa_activo.png"]];
     (void) [tabBarItem3 initWithTitle:@"Cartelera" image:[UIImage imageNamed:@"icono-cartelera.png"]  selectedImage:[UIImage imageNamed:@"icono-cartelera_activo.png"]];
-    (void) [tabBarItem4 initWithTitle:@"Colon 360" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
+    (void) [tabBarItem4 initWithTitle:@"Colón 360º" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
     
     
     // Change the title color of tab bar items
@@ -157,6 +172,20 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)application:(UIApplication *)application
+didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    // Store the deviceToken in the current installation and save it to Parse.
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application
+didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [PFPush handlePush:userInfo];
 }
 
 @end

@@ -13,6 +13,7 @@
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) NSMutableArray *agenda;
 @property (nonatomic, strong) NSMutableDictionary *tablaDisponibilidad;
+@property (nonatomic, assign) BOOL estaParseando;
 
 - (BOOL) parsear;
 - (void) backgroundParser;

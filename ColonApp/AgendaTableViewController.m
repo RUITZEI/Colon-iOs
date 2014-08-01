@@ -65,6 +65,7 @@
     if (self.app.agenda) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         [self.searchDisplayController.searchBar setHidden:NO];
+        self.tableView.backgroundView = nil;
         return 1;
         
     } else {
@@ -72,7 +73,7 @@
         // Muestro un msg pidiendole al usuario que actualice.
         UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
         
-        messageLabel.text = @"Deslice para actualizar...";
+        messageLabel.text = @"Cargando eventos disponibles...";
         messageLabel.textColor = [UIColor whiteColor];
         messageLabel.numberOfLines = 0;
         messageLabel.textAlignment = NSTextAlignmentCenter;
@@ -84,7 +85,13 @@
         messageLabel.userInteractionEnabled = YES;
         [messageLabel addGestureRecognizer:tapGestureRecognizer];
         
-
+        
+        if (self.app.estaParseando){
+            messageLabel.text = @"Estoy cargando, guachin...";
+        } else {
+            messageLabel.text = @"Desliza para actualizar...";
+        }
+        
         self.tableView.backgroundView = messageLabel;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
@@ -175,6 +182,12 @@
         NSLog(@"No Hay Asientos Disponibles");
         
     } else if (! estaEnVenta){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
+                                                        message: [NSString stringWithFormat:@"Las entradas salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
         NSLog(@"No esta a la venta");
         NSLog(@"Las entradas salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida);
     }

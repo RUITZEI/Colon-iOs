@@ -108,7 +108,7 @@
     itemAgenda = [self.itemsAgendaFiltrados objectAtIndex:indexPath.row];
 
     [cell asignarNombre:itemAgenda.nombre];
-    //[cell asignarTipo:itemAgenda.tipo];
+    [cell asignarTipo:itemAgenda.tipo];
     [cell asignarFecha:itemAgenda.fecha];
     [cell asignarImagenConLink:itemAgenda.logoId];
     [cell asignariconoDisponibilidad:[app.tablaDisponibilidad valueForKey:itemAgenda.disponibilidad]];

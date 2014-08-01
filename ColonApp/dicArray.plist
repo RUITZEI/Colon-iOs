@@ -10,10 +10,10 @@
 	</array>
 	<key>Abono</key>
 	<array>
-		<string>Gran Abono</string>
-		<string>Abono Nocturno</string>
-		<string>Abono Vespertino</string>
 		<string>Abono Estelar</string>
+		<string>Abono Vespertino</string>
+		<string>Abono Nocturno</string>
+		<string>Gran Abono</string>
 	</array>
 </dict>
 </plist>

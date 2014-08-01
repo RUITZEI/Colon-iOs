@@ -125,9 +125,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
+    // Devuelve la cantidad de filas por seccion.
     NSString *sectionTitle = [sectionTitles objectAtIndex:section];
     NSArray *sectionFilters = [self.filtros objectForKey:sectionTitle];
+    NSLog(@"%d", [sectionFilters count]);
     return [sectionFilters count];
 }
 
@@ -166,11 +167,11 @@
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
     // Background color
-    view.tintColor = [UIColor whiteColor];
+    view.tintColor = [UIColor blackColor];
     
     // Text Color
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-    [header.textLabel setTextColor:[UIColor blackColor]];
+    [header.textLabel setTextColor:[UIColor grayColor]];
     
     // Another way to set the background color
     // Note: does not preserve gradient effect of original header

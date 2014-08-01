@@ -16,6 +16,7 @@
 
 @synthesize webView;
 @synthesize spinner;
+@synthesize imagenError;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +34,8 @@
     NSLog(@"seteando delegate del Programa Colon");
     [webView setDelegate:self];
     
-
+    self.spinner.hidesWhenStopped = YES;
+    
     [self cargarPrograma];
 }
 
@@ -48,19 +50,49 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     
     NSLog(@"Comenzo a cargar el sitio");
-    [spinner startAnimating];
+    [self.spinner startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
     NSLog(@"Termino la carga del Sitio");
     [self.spinner stopAnimating];
-    [self.spinner removeFromSuperview];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"Error cargando el sitio");
     [self.spinner stopAnimating];
-    [self.spinner removeFromSuperview];
+    
+
+    
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    
+    messageLabel.text = @"No hay eventos disponibles.";
+    messageLabel.textColor = [UIColor cyanColor];
+    messageLabel.numberOfLines = 0;
+    messageLabel.textAlignment = NSTextAlignmentCenter;
+    //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+    [messageLabel setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2)];
+    [messageLabel sizeToFit];
+    
+    imagenError = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+    [imagenError setImage: [UIImage imageNamed:@"background_colon.png"]];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clicked)];
+    
+    tapGestureRecognizer.numberOfTapsRequired = 1;
+    imagenError.userInteractionEnabled = YES;
+    imagenError.contentMode = UIViewContentModeScaleAspectFill;
+    
+    [imagenError addGestureRecognizer:tapGestureRecognizer];
+
+    [self.view addSubview:imagenError];
+    
+    //unaImagen.userInteractionEnabled = YES;
+
+
+    
+    //UIWindow* window = [UIApplication sharedApplication].keyWindow;
+    //[window addSubview:messageLabel];
 }
 
 /*
@@ -79,6 +111,13 @@
     NSURL *url = [NSURL URLWithString:PROGRAMA_COLON];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
+}
+
+- (void) clicked {
+    NSLog(@"Intentando Carga programa nuevamente...");
+    [self.imagenError removeFromSuperview];
+//    [self.view addSubview:self.spinner];
+    [self cargarPrograma];
 }
 
 @end
