@@ -21,6 +21,7 @@
 @synthesize itemAgenda;
 @synthesize resultadosBusqueda;
 @synthesize searchBar;
+@synthesize spinner;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -37,16 +38,16 @@
     
     app = [[UIApplication sharedApplication] delegate];
     
-    
-    [self cargarPrograma];
-    
     [self agregarPullToRefresh];
     
+    [self agregarSpinner];
+    
+    [self cargarPrograma];
+
     
     //Esto cambia el color del fondo de la tableView.
     self.view.backgroundColor = [UIColor darkGreyColorForCell];
     [self.searchDisplayController.searchResultsTableView setBackgroundColor:[UIColor darkGreyColorForCell]];
-
 
 }
 
@@ -69,34 +70,30 @@
         return 1;
         
     } else {
-        
-        // Muestro un msg pidiendole al usuario que actualice.
-        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-        
-        messageLabel.text = @"Cargando eventos disponibles...";
-        messageLabel.textColor = [UIColor whiteColor];
-        messageLabel.numberOfLines = 0;
-        messageLabel.textAlignment = NSTextAlignmentCenter;
-        //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
-        [messageLabel sizeToFit];
-        
-        UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clicked)];
-        tapGestureRecognizer.numberOfTapsRequired = 1;
-        messageLabel.userInteractionEnabled = YES;
-        [messageLabel addGestureRecognizer:tapGestureRecognizer];
-        
-        
-        if (self.app.estaParseando){
-            messageLabel.text = @"Estoy cargando, guachin...";
-        } else {
-            messageLabel.text = @"Desliza para actualizar...";
-        }
-        
-        self.tableView.backgroundView = messageLabel;
+        /* Si llego aca es porque la agenda NO tiene elementos.
+           Puede ser que todavia este parseando
+           O directamente que haya fallado el parse.
+         */
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        
         [self.searchDisplayController.searchBar setHidden:YES];
         
+        if (self.app.estaParseando){
+            [self.spinner startAnimating];
+
+        } else {
+            
+            // Muestro un msg pidiendole al usuario que actualice.
+            UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+            
+            messageLabel.text = @"Desliza para actualizar...";
+            messageLabel.textColor = [UIColor whiteColor];
+            messageLabel.numberOfLines = 0;
+            messageLabel.textAlignment = NSTextAlignmentCenter;
+            //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+            [messageLabel sizeToFit];
+
+            self.tableView.backgroundView = messageLabel;
+        }
     }
     
     return 0;
@@ -111,7 +108,6 @@
     } else {
         return [self.app.agenda count];
     }
-//    return [self.app.agenda count];
 }
 
 
@@ -133,10 +129,7 @@
         itemAgenda = [app.agenda objectAtIndex:indexPath.row];
     }
     
-    
-    
     //Selector Color.
-    
     /*
     UIView *bgColorView = [[UIView alloc] init];
     bgColorView.backgroundColor = [UIColor redColor];
@@ -154,8 +147,6 @@
     ? [UIColor darkGreyColorForCell]
     : [UIColor blackColorForCell];
     
-    
-     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     //cell.accessoryView.backgroundColor = [UIColor redColor];
     
@@ -182,12 +173,7 @@
         NSLog(@"No Hay Asientos Disponibles");
         
     } else if (! estaEnVenta){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
-                                                        message: [NSString stringWithFormat:@"Las entradas salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"OK", nil];
-        [alert show];
+        [self mostrarAlertaConFechaDeVenta];
         NSLog(@"No esta a la venta");
         NSLog(@"Las entradas salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida);
     }
@@ -233,12 +219,12 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
     if ([segue.identifier isEqualToString:@"detailSegue"]) {
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
         ItemDetailViewController *detailView = [segue destinationViewController];
         detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
-
+        detailView.hidesBottomBarWhenPushed = YES;
+        
     } else if ([segue.identifier isEqualToString:@"filterSegue"]){
         NSLog(@"Abriendo los filtros");
     } else {
@@ -260,6 +246,7 @@
         [self.app parsear];
         dispatch_sync(dispatch_get_main_queue(), ^{
             NSLog(@"Termino");
+            [self.spinner stopAnimating];
             [self.tableView reloadData];
             if ( [self.refreshControl isRefreshing ] ){
                 [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
@@ -271,6 +258,7 @@
 - (void)stopRefresh
 {
     NSLog(@"Refresh stopped.");
+    [self.spinner stopAnimating];
     [self.refreshControl endRefreshing];
     [self.tableView reloadData];
     
@@ -282,10 +270,9 @@
       a intentar descargarla en segundo plano y actualizo la table.
  */
 - (void) cargarPrograma{
-    if ([self.app.agenda count] < 1) {
+    if (!self.app.agenda) {
         NSLog(@"No se habia parseado");
         [self parsearXML];
-//        [self.refreshControl beginRefreshing];
     } else {
         NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
         [self.tableView reloadData];
@@ -304,8 +291,26 @@
     self.refreshControl.backgroundColor = [UIColor whiteColor];
 }
 
-- (void) clicked{
-    NSLog(@"CLICKED");
+- (void) agregarSpinner{
+    float navBarHeight = [[self.navigationController navigationBar] frame ].size.height;
+    float tabBarHeight = [[self.tabBarController tabBar] frame].size.height;
+    
+    self.spinner = [[UIActivityIndicatorView alloc]
+                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, ( self.view.frame.size.height - navBarHeight - tabBarHeight) /2.0);
+    
+    self.spinner.hidesWhenStopped = YES;
+    spinner.color = [[self view] tintColor];
+    [self.view addSubview:spinner];
+}
+
+- (void) mostrarAlertaConFechaDeVenta{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
+                                                    message: [NSString stringWithFormat:@"Las localidades salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 

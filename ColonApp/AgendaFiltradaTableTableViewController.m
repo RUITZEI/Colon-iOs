@@ -165,6 +165,7 @@
         NSLog(@"Abriendo detalles para la funcion: %@", itemAgenda.nombre);
         ItemDetailViewController *detailView = [segue destinationViewController];
         detailView.link = [NSString stringWithFormat:@"%@%@",COMPRA_COLON, itemAgenda.link];
+        detailView.hidesBottomBarWhenPushed = YES;
         
     } else {
         NSLog(@"Se abrio un Segue no identificado");

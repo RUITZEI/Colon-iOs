@@ -19,6 +19,7 @@
 @property (nonatomic, retain) ItemAgenda *itemAgenda;
 @property (nonatomic, strong) NSArray *resultadosBusqueda;
 @property IBOutlet UISearchBar *searchBar;
+@property (nonatomic, strong) UIActivityIndicatorView *spinner;
 
 
 - (IBAction)openFilters:(id)sender;

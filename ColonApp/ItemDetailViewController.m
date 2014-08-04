@@ -92,15 +92,29 @@
     [webView loadRequest:requestObj];
 }
 
-- (IBAction)goBack:(id)sender{
-    /*if ([self.webView canGoBack]) {
-        [self.webView goBack];
-        NSLog(@"Back Pressed");
-    }*/
-    
-    //Refresh
-    [self.webView reload];
 
+
+#pragma mark - Bottom bar Methods
+- (IBAction)goBack:(id)sender{
+    NSLog(@"Back Pressed");
+    
+    if ([self.webView canGoBack]) {
+        [self.webView goBack];
+    }
+}
+
+- (IBAction)goForward:(id)sender{
+    NSLog(@"Forward Pressed");
+    
+    if ([self.webView canGoForward]) {
+        [self.webView goForward];
+    }
+}
+
+-(IBAction)reloadSite:(id)sender{
+    NSLog(@"reload Pressed");
+    
+    [self.webView reload];
 }
 
 @end
