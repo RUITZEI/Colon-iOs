@@ -112,8 +112,7 @@
 }
 
 -(IBAction)reloadSite:(id)sender{
-    NSLog(@"reload Pressed");
-    
+    NSLog(@"Back Pressed");
     [self.webView reload];
 }
 

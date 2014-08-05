@@ -50,8 +50,6 @@
 		AB8DCDA419913CEF00216D31 /* web_refresh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8DCDA019913CEF00216D31 /* web_refresh@2x.png */; };
 		AB8DCDA619913E0A00216D31 /* programa-actualizar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8DCDA519913E0A00216D31 /* programa-actualizar@2x.png */; };
 		AB8DCDA81991494D00216D31 /* agenda-flecha@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8DCDA71991494D00216D31 /* agenda-flecha@2x.png */; };
-		AB8DCDAA199152AE00216D31 /* img640x1136.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8DCDA9199152AE00216D31 /* img640x1136.png */; };
-		AB8DCDAC1991539C00216D31 /* img640x960.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8DCDAB1991539C00216D31 /* img640x960.png */; };
 		ABD855BF1965C1E000CC5496 /* AgendaTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */; };
 		ABD855C21965C6DC00CC5496 /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD855C11965C6DC00CC5496 /* CustomCell.m */; };
 		ABE836ED1988324C003CF7D9 /* dicArray.plist in Resources */ = {isa = PBXBuildFile; fileRef = ABE836EC1988324C003CF7D9 /* dicArray.plist */; };
@@ -146,8 +144,6 @@
 		AB8DCDA019913CEF00216D31 /* web_refresh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_refresh@2x.png"; sourceTree = "<group>"; };
 		AB8DCDA519913E0A00216D31 /* programa-actualizar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "programa-actualizar@2x.png"; sourceTree = "<group>"; };
 		AB8DCDA71991494D00216D31 /* agenda-flecha@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "agenda-flecha@2x.png"; sourceTree = "<group>"; };
-		AB8DCDA9199152AE00216D31 /* img640x1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img640x1136.png; sourceTree = "<group>"; };
-		AB8DCDAB1991539C00216D31 /* img640x960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img640x960.png; sourceTree = "<group>"; };
 		ABD855BD1965C1E000CC5496 /* AgendaTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AgendaTableViewController.h; sourceTree = "<group>"; };
 		ABD855BE1965C1E000CC5496 /* AgendaTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AgendaTableViewController.m; sourceTree = "<group>"; };
 		ABD855C01965C6DC00CC5496 /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -304,8 +300,6 @@
 		AB6331721965DC660004E6FA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				AB8DCDAB1991539C00216D31 /* img640x960.png */,
-				AB8DCDA9199152AE00216D31 /* img640x1136.png */,
 				AB8DCD9519913C7D00216D31 /* web_back-inactive@2x.png */,
 				AB8DCD9619913C7D00216D31 /* web_forward-inactive@2x.png */,
 				AB8DCD9719913C7D00216D31 /* web_menu-inactive@2x.png */,
@@ -505,11 +499,9 @@
 				ABF136C0198ACAC9006F4738 /* boton_360_over.png in Resources */,
 				AB63317A1965E3040004E6FA /* availability_good.png in Resources */,
 				AB8DCDA119913CEF00216D31 /* web_back@2x.png in Resources */,
-				AB8DCDAA199152AE00216D31 /* img640x1136.png in Resources */,
 				AB63317B1965E3040004E6FA /* availability_limited.png in Resources */,
 				AB094D8F1964941500D0E3D0 /* InfoPlist.strings in Resources */,
 				AB8DCD9A19913C7D00216D31 /* web_forward-inactive@2x.png in Resources */,
-				AB8DCDAC1991539C00216D31 /* img640x960.png in Resources */,
 				AB8DCDA219913CEF00216D31 /* web_forward@2x.png in Resources */,
 				ABF136CC198BF16A006F4738 /* icono-cartelera_activo@2x.png in Resources */,
 				AB6DE77F19672710004B5CB3 /* degrade.png in Resources */,

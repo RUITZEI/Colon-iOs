@@ -95,16 +95,14 @@
 }
 
 - (void) inicializarTabs{
-    // Assign tab bar item with titles
-   // 1- Home    2- Programa     3-Cartelera      4- 360
+   //1- Programa     2-Cartelera      3- 360
     
     
     UITabBarController *tabBarController = (UITabBarController *)self.window.rootViewController;
     UITabBar *tabBar = tabBarController.tabBar;
-    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
-    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
-    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
-    UITabBarItem *tabBarItem4 = [tabBar.items objectAtIndex:3];
+    UITabBarItem *tabCartelera = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabPrograma = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabTour = [tabBar.items objectAtIndex:2];
     
     //Color de fondo de las imagenes. Le pone un tint azul por default.
     if ([UITabBar instancesRespondToSelector:@selector(setSelectedImageTintColor:)]) {
@@ -112,10 +110,9 @@
     }
     
     
-    (void) [tabBarItem1 initWithTitle:@"Home" image:[UIImage imageNamed:@"icono-home.png"]  selectedImage:[UIImage imageNamed:@"icono-home_activo.png"]];
-    (void)[tabBarItem2 initWithTitle:@"Programa" image:[UIImage imageNamed:@"icono-programa.png"] selectedImage:[UIImage imageNamed:@"icono-programa_activo.png"]];
-    (void) [tabBarItem3 initWithTitle:@"Cartelera" image:[UIImage imageNamed:@"icono-cartelera.png"]  selectedImage:[UIImage imageNamed:@"icono-cartelera_activo.png"]];
-    (void) [tabBarItem4 initWithTitle:@"Colón 360º" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
+    (void) [tabCartelera initWithTitle:@"Cartelera" image:[UIImage imageNamed:@"icono-cartelera.png"]  selectedImage:[UIImage imageNamed:@"icono-cartelera_activo.png"]];
+    (void)[tabPrograma initWithTitle:@"Programa" image:[UIImage imageNamed:@"icono-programa.png"] selectedImage:[UIImage imageNamed:@"icono-programa_activo.png"]];
+    (void) [tabTour initWithTitle:@"Colón 360º" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
     
     
     // Change the title color of tab bar items

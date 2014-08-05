@@ -280,22 +280,26 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" red="0.50490404211956519" green="0.030797977939431027" blue="0.048659939008812096" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-gZ-nr8">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-gZ-nr8">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem image="web_back.png" width="40" id="A4C-qI-C2Q">
+                                    <barButtonItem id="pah-4N-Om9"/>
+                                    <barButtonItem image="web_back.png" id="gYI-mK-NsZ">
                                         <connections>
-                                            <action selector="goBack:" destination="KlY-5b-dQT" id="8w4-bn-LHw"/>
+                                            <action selector="goBack:" destination="KlY-5b-dQT" id="Iw2-qw-PzS"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="web_forward.png" width="40" id="5TE-nz-oEh">
+                                    <barButtonItem image="web_forward.png" width="40" id="boH-Ik-HDg">
                                         <connections>
-                                            <action selector="goForward:" destination="KlY-5b-dQT" id="uxF-26-8Ma"/>
+                                            <action selector="goForward:" destination="KlY-5b-dQT" id="VFN-fN-Hky"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="web_refresh.png" width="50" id="kRS-I4-Iye">
-                                        <inset key="imageInsets" minX="300" minY="0.0" maxX="10" maxY="0.0"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="osh-wa-uKW"/>
+                                    <barButtonItem image="web_refresh.png" width="40" id="qch-Ad-wZW">
+                                        <connections>
+                                            <action selector="reloadSite:" destination="KlY-5b-dQT" id="hFG-qS-3m2"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                             </toolbar>
@@ -323,31 +327,6 @@
             </objects>
             <point key="canvasLocation" x="2087" y="-294"/>
         </scene>
-        <!--View Controller - Home-->
-        <scene sceneID="p6x-2B-2T0">
-            <objects>
-                <viewController id="Zmk-kX-tHa" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OOa-y0-Yeu"/>
-                        <viewControllerLayoutGuide type="bottom" id="fdX-HJ-9BS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RC0-h5-vYM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img640x1136.png" translatesAutoresizingMaskIntoConstraints="NO" id="yOG-6U-9gf">
-                                <rect key="frame" x="0.0" y="-7" width="320" height="526"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Home" id="QgU-Hc-XwG"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RGa-FO-lyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1066" y="-2362"/>
-        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5RS-Rp-Cbc">
             <objects>
@@ -361,9 +340,8 @@
                         <color key="selectedImageTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Zmk-kX-tHa" kind="relationship" relationship="viewControllers" id="SVC-kb-Wip"/>
-                        <segue destination="bKO-cw-x0Q" kind="relationship" relationship="viewControllers" id="de5-ph-CK4"/>
                         <segue destination="QaG-0g-RNf" kind="relationship" relationship="viewControllers" id="QLT-BQ-Vxc"/>
+                        <segue destination="bKO-cw-x0Q" kind="relationship" relationship="viewControllers" id="de5-ph-CK4"/>
                         <segue destination="WHD-fE-lBQ" kind="relationship" relationship="viewControllers" id="S0G-RI-fvk"/>
                     </connections>
                 </tabBarController>
@@ -500,7 +478,6 @@
         <image name="degrade.png" width="200" height="36"/>
         <image name="icono-cartelera_activo.png" width="30" height="30"/>
         <image name="icono-filtro.png" width="24" height="24"/>
-        <image name="img640x1136.png" width="641" height="1137"/>
         <image name="web_back.png" width="24" height="24"/>
         <image name="web_forward.png" width="24" height="24"/>
         <image name="web_refresh.png" width="24" height="24"/>
@@ -512,6 +489,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="7Nh-Rj-wn2"/>
+        <segue reference="8rB-Qx-2wg"/>
     </inferredMetricsTieBreakers>
 </document>
