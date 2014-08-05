@@ -81,18 +81,8 @@
             [self.spinner startAnimating];
 
         } else {
-            
-            // Muestro un msg pidiendole al usuario que actualice.
-            UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
-            
-            messageLabel.text = @"Desliza para actualizar...";
-            messageLabel.textColor = [UIColor whiteColor];
-            messageLabel.numberOfLines = 0;
-            messageLabel.textAlignment = NSTextAlignmentCenter;
-            //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
-            [messageLabel sizeToFit];
-
-            self.tableView.backgroundView = messageLabel;
+            //Muestro un mensaje para que el usuario actualice.
+            [self mostrarMensajeActualizar];
         }
     }
     
@@ -240,28 +230,14 @@
     NSLog(@"Filter button Clicked");
 }
 
-- (void) parsearXML{
-    NSLog(@"Parseando en segundo plano desde Agenda");
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.app parsear];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"Termino");
-            [self.spinner stopAnimating];
-            [self.tableView reloadData];
-            if ( [self.refreshControl isRefreshing ] ){
-                [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
-            }
-        });
-    });
-}
-
-- (void)stopRefresh
-{
-    NSLog(@"Refresh stopped.");
-    [self.spinner stopAnimating];
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
+#pragma mark - Lazy Instantiation
+- (UIActivityIndicatorView *)spinner{
+    if (!spinner) {
+        spinner = [[UIActivityIndicatorView alloc]
+                        initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    }
     
+    return spinner;
 }
 
 #pragma mark - Inicializadores
@@ -295,15 +271,14 @@
     float navBarHeight = [[self.navigationController navigationBar] frame ].size.height;
     float tabBarHeight = [[self.tabBarController tabBar] frame].size.height;
     
-    self.spinner = [[UIActivityIndicatorView alloc]
-                    initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, ( self.view.frame.size.height - navBarHeight - tabBarHeight) /2.0);
     
     self.spinner.hidesWhenStopped = YES;
-    spinner.color = [[self view] tintColor];
+    self.spinner.color = [[self view] tintColor];
     [self.view addSubview:spinner];
 }
 
+#pragma mark - Metodos
 - (void) mostrarAlertaConFechaDeVenta{
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
                                                     message: [NSString stringWithFormat:@"Las localidades salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
@@ -311,6 +286,59 @@
                                           cancelButtonTitle:nil
                                           otherButtonTitles:@"OK", nil];
     [alert show];
+}
+
+- (void) mostrarMensajeActualizar{
+    
+    //Creo una view que ocupe toda la pantalla
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+    //Creo un icono para agregarselo a la view
+    UIImageView *icono = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) ];
+    [icono setImage: [UIImage imageNamed:@"agenda-flecha.png"]];
+    [icono sizeToFit];
+    [icono setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4)];
+    
+    // Creo un mensaje diciendo que actualice.
+    UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
+    messageLabel.text = @"Desliza para actualizar...";
+    messageLabel.textColor = [UIColor whiteColor];
+    messageLabel.numberOfLines = 0;
+    messageLabel.textAlignment = NSTextAlignmentCenter;
+    //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+    [messageLabel sizeToFit];
+    [messageLabel setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4 + icono.frame.size.height * 1.5)];
+    
+    //Agrego las views a la view principal.
+    [customView addSubview:icono];
+    [customView addSubview:messageLabel];
+    
+    //Lo pongo de fondo.
+    self.tableView.backgroundView = customView;
+}
+
+- (void) parsearXML{
+    NSLog(@"Parseando en segundo plano desde Agenda");
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self.app parsear];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            NSLog(@"Termino");
+            [self.spinner stopAnimating];
+            [self.tableView reloadData];
+            if ( [self.refreshControl isRefreshing ] ){
+                [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
+            }
+        });
+    });
+}
+
+- (void)stopRefresh
+{
+    NSLog(@"Refresh stopped.");
+    [self.spinner stopAnimating];
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    
 }
 
 

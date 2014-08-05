@@ -284,22 +284,19 @@
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
-                                    <barButtonItem image="availability_good.png" width="77" id="A4C-qI-C2Q">
+                                    <barButtonItem image="web_back.png" width="40" id="A4C-qI-C2Q">
                                         <connections>
                                             <action selector="goBack:" destination="KlY-5b-dQT" id="8w4-bn-LHw"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="availability_good.png" width="42" id="5TE-nz-oEh">
+                                    <barButtonItem image="web_forward.png" width="40" id="5TE-nz-oEh">
                                         <connections>
                                             <action selector="goForward:" destination="KlY-5b-dQT" id="uxF-26-8Ma"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="availability_sold_out.png" width="72" id="Jlj-Fj-pls">
-                                        <connections>
-                                            <action selector="reloadSite:" destination="KlY-5b-dQT" id="KlC-vm-CJp"/>
-                                        </connections>
+                                    <barButtonItem image="web_refresh.png" width="50" id="kRS-I4-Iye">
+                                        <inset key="imageInsets" minX="300" minY="0.0" maxX="10" maxY="0.0"/>
                                     </barButtonItem>
-                                    <barButtonItem image="availability_limited.png" id="kRS-I4-Iye"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -337,13 +334,19 @@
                     <view key="view" contentMode="scaleToFill" id="RC0-h5-vYM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="img640x1136.png" translatesAutoresizingMaskIntoConstraints="NO" id="yOG-6U-9gf">
+                                <rect key="frame" x="0.0" y="-7" width="320" height="526"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="QgU-Hc-XwG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGa-FO-lyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="-2334"/>
+            <point key="canvasLocation" x="1066" y="-2362"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5RS-Rp-Cbc">
@@ -491,15 +494,16 @@
         </scene>
     </scenes>
     <resources>
-        <image name="availability_good.png" width="32" height="14"/>
-        <image name="availability_limited.png" width="32" height="14"/>
-        <image name="availability_sold_out.png" width="32" height="14"/>
         <image name="background_colon_tour.png" width="640" height="960"/>
         <image name="boton_360.png" width="210" height="210"/>
         <image name="boton_360_over.png" width="210" height="210"/>
         <image name="degrade.png" width="200" height="36"/>
         <image name="icono-cartelera_activo.png" width="30" height="30"/>
         <image name="icono-filtro.png" width="24" height="24"/>
+        <image name="img640x1136.png" width="641" height="1137"/>
+        <image name="web_back.png" width="24" height="24"/>
+        <image name="web_forward.png" width="24" height="24"/>
+        <image name="web_refresh.png" width="24" height="24"/>
     </resources>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
