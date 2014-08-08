@@ -13,6 +13,7 @@
 
 @property (strong, nonatomic) NSString* link;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (nonatomic,strong) UIActivityIndicatorView *spinner;
+
 
 @end

@@ -15,8 +15,8 @@
 @implementation ProgramaViewController
 
 @synthesize webView;
-@synthesize spinner;
 @synthesize imagenError;
+@synthesize activityIndicatorObject;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,7 +34,7 @@
     NSLog(@"seteando delegate del Programa Colon");
     [webView setDelegate:self];
     
-    self.spinner.hidesWhenStopped = YES;
+    [self cargarSpinner];
     
     [self cargarPrograma];
 }
@@ -50,19 +50,18 @@
 - (void)webViewDidStartLoad:(UIWebView *)webView{
     
     NSLog(@"Comenzo a cargar el sitio");
-    [self.spinner startAnimating];
+    [self.activityIndicatorObject startAnimating];
 }
 - (void)webViewDidFinishLoad:(UIWebView *)webView{
     
     NSLog(@"Termino la carga del Sitio");
-    [self.spinner stopAnimating];
+    [self.activityIndicatorObject stopAnimating];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"Error cargando el sitio");
-    [self.spinner stopAnimating];
+    [self.activityIndicatorObject stopAnimating];
     [self mostrarImagenError];
-    //[self mostrarBotonError];
 }
 
 /*
@@ -86,6 +85,15 @@
     return imagenError;
 }
 
+- (UIActivityIndicatorView *) activityIndicatorObject{
+    if (!activityIndicatorObject) {
+        activityIndicatorObject = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+
+    }
+    
+    return activityIndicatorObject;
+}
+
 
 - (void) mostrarImagenError{
     
@@ -107,6 +115,17 @@
     NSURL *url = [NSURL URLWithString:PROGRAMA_COLON];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
+}
+
+- (void) cargarSpinner {
+    float tabBarHeight = [[self.tabBarController tabBar] frame].size.height;
+    
+    self.activityIndicatorObject.center = CGPointMake(self.view.frame.size.width / 2.0, ( self.view.frame.size.height - tabBarHeight) /2.0);
+    
+    self.activityIndicatorObject.hidesWhenStopped = YES;
+    self.activityIndicatorObject.color = [[self view] tintColor];
+    [self.view addSubview:activityIndicatorObject];
+    
 }
 
 - (void) clicked {

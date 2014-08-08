@@ -35,6 +35,8 @@
     
     [self setearDelegate];
     
+    [self cargarSpinner];
+    
     [self cargarLink];
 }
 
@@ -81,7 +83,14 @@
     // Necesario para que funcionen los metodos del webview.
     NSLog(@"seteando delegate del webView");
     [webView setDelegate:self];
+}
+
+- (UIActivityIndicatorView *) spinner{
+    if (!spinner) {
+        spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    }
     
+    return spinner;
 }
 
 - (void) cargarLink{
@@ -90,6 +99,23 @@
 
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [webView loadRequest:requestObj];
+}
+
+- (void) cargarSpinner{
+    float navBarHeight = [[self.navigationController navigationBar] frame ].size.height;
+    float tabBarHeight = [[self.tabBarController tabBar] frame].size.height;
+    
+    self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, ( self.view.frame.size.height - navBarHeight - tabBarHeight) /2.0);
+    
+    spinner.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleRightMargin |
+    UIViewAutoresizingFlexibleBottomMargin |
+    UIViewAutoresizingFlexibleLeftMargin;
+    
+    self.spinner.hidesWhenStopped = YES;
+    self.spinner.color = [[self view] tintColor];
+    [self.view addSubview:spinner];
 }
 
 
@@ -112,7 +138,7 @@
 }
 
 -(IBAction)reloadSite:(id)sender{
-    NSLog(@"Back Pressed");
+    
     [self.webView reload];
 }
 

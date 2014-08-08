@@ -267,21 +267,16 @@
                         <viewControllerLayoutGuide type="bottom" id="d3l-1b-HIM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R9V-Wf-QAv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Se-dP-kcf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Se-dP-kcf">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="S7A-DH-ogu">
-                                <rect key="frame" x="142" y="267" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.50490404211956519" green="0.030797977939431027" blue="0.048659939008812096" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-gZ-nr8">
-                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tv5-gZ-nr8">
+                                <rect key="frame" x="1" y="460" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem id="pah-4N-Om9"/>
@@ -304,14 +299,24 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2Se-dP-kcf" secondAttribute="trailing" id="62L-v7-Yq8"/>
+                            <constraint firstItem="Tv5-gZ-nr8" firstAttribute="top" secondItem="2Se-dP-kcf" secondAttribute="bottom" id="SnG-Zz-o6Y"/>
+                            <constraint firstItem="2Se-dP-kcf" firstAttribute="leading" secondItem="R9V-Wf-QAv" secondAttribute="leading" id="Zf1-gM-7Ki"/>
+                            <constraint firstItem="2Se-dP-kcf" firstAttribute="top" secondItem="R9V-Wf-QAv" secondAttribute="top" id="bGl-8C-0qP"/>
+                            <constraint firstAttribute="trailing" secondItem="Tv5-gZ-nr8" secondAttribute="trailing" constant="-1" id="uXj-B8-40f"/>
+                            <constraint firstItem="d3l-1b-HIM" firstAttribute="top" secondItem="Tv5-gZ-nr8" secondAttribute="bottom" id="v2i-1B-j3a"/>
+                            <constraint firstItem="Tv5-gZ-nr8" firstAttribute="top" secondItem="2Se-dP-kcf" secondAttribute="bottom" id="xwk-va-Kfb"/>
+                            <constraint firstItem="Tv5-gZ-nr8" firstAttribute="leading" secondItem="R9V-Wf-QAv" secondAttribute="leading" constant="1" id="ybi-KF-YS8"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="r54-Cg-zyL"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="oqH-Y4-T8g" id="apA-VD-VxE"/>
-                        <outlet property="spinner" destination="S7A-DH-ogu" id="x1B-aH-UMV"/>
                         <outlet property="webView" destination="2Se-dP-kcf" id="8Rx-q8-NvK"/>
                     </connections>
                 </viewController>
@@ -398,22 +403,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-G9-JfB">
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWv-G9-JfB">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="UEH-xz-V0x">
-                                <rect key="frame" x="142" y="266" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.50490404209999995" green="0.030797977939999999" blue="0.04865993901" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="QWv-G9-JfB" secondAttribute="trailing" id="20T-Ai-Fki"/>
+                            <constraint firstItem="QWv-G9-JfB" firstAttribute="top" secondItem="ncb-xC-aHd" secondAttribute="top" id="WMi-bD-iYp"/>
+                            <constraint firstItem="BsJ-rA-XQq" firstAttribute="top" secondItem="QWv-G9-JfB" secondAttribute="bottom" id="ccy-Hh-TF9"/>
+                            <constraint firstItem="QWv-G9-JfB" firstAttribute="leading" secondItem="ncb-xC-aHd" secondAttribute="leading" id="rhR-DS-H9A"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Programa" id="8BG-Hy-YDf"/>
                     <connections>
-                        <outlet property="spinner" destination="UEH-xz-V0x" id="q6k-mX-CpB"/>
                         <outlet property="webView" destination="QWv-G9-JfB" id="TP6-HV-mZe"/>
                     </connections>
                 </viewController>

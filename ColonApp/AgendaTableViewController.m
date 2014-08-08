@@ -83,6 +83,7 @@
         } else {
             //Muestro un mensaje para que el usuario actualice.
             [self mostrarMensajeActualizar];
+            
         }
     }
     
@@ -273,6 +274,12 @@
     
     self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, ( self.view.frame.size.height - navBarHeight - tabBarHeight) /2.0);
     
+    self.spinner.autoresizingMask =
+    UIViewAutoresizingFlexibleTopMargin |
+    UIViewAutoresizingFlexibleRightMargin |
+    UIViewAutoresizingFlexibleBottomMargin |
+    UIViewAutoresizingFlexibleLeftMargin;
+    
     self.spinner.hidesWhenStopped = YES;
     self.spinner.color = [[self view] tintColor];
     [self.view addSubview:spinner];
@@ -301,7 +308,7 @@
     
     // Creo un mensaje diciendo que actualice.
     UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
-    messageLabel.text = @"Desliza para actualizar...";
+    messageLabel.text = @"Deslizar para actualizar...";
     messageLabel.textColor = [UIColor whiteColor];
     messageLabel.numberOfLines = 0;
     messageLabel.textAlignment = NSTextAlignmentCenter;
