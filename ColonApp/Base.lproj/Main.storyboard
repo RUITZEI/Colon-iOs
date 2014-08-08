@@ -366,13 +366,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background_colon_tour.png" translatesAutoresizingMaskIntoConstraints="NO" id="RHc-d4-76E">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_colon_tour.png" translatesAutoresizingMaskIntoConstraints="NO" id="RHc-d4-76E">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU7-OR-RA5">
-                                <rect key="frame" x="105" y="232" width="110" height="108"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU7-OR-RA5">
+                                <rect key="frame" x="105" y="206" width="110" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="CdE-4n-vuJ"/>
+                                    <constraint firstAttribute="height" constant="108" id="GID-tG-16D"/>
+                                </constraints>
                                 <state key="normal" image="boton_360.png">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -384,6 +388,15 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iU7-OR-RA5" firstAttribute="centerX" secondItem="Csj-81-37C" secondAttribute="centerX" id="0Z2-N4-iwF"/>
+                            <constraint firstAttribute="centerX" secondItem="iU7-OR-RA5" secondAttribute="centerX" id="CDI-VO-POO"/>
+                            <constraint firstAttribute="centerY" secondItem="iU7-OR-RA5" secondAttribute="centerY" id="VjE-OU-fKF"/>
+                            <constraint firstItem="RHc-d4-76E" firstAttribute="leading" secondItem="Csj-81-37C" secondAttribute="leading" id="moV-13-cWN"/>
+                            <constraint firstItem="iU7-OR-RA5" firstAttribute="centerX" secondItem="RHc-d4-76E" secondAttribute="centerX" id="o6F-aU-xir"/>
+                            <constraint firstAttribute="bottom" secondItem="RHc-d4-76E" secondAttribute="bottom" id="uUv-yg-mBh"/>
+                            <constraint firstItem="RHc-d4-76E" firstAttribute="top" secondItem="Csj-81-37C" secondAttribute="top" id="ycN-6t-8oS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Colon 360º" id="j4W-a8-mGw"/>
                 </viewController>
