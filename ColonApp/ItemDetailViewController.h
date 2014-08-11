@@ -15,5 +15,9 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (nonatomic,strong) UIActivityIndicatorView *spinner;
 
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *backButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *forwardButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *refreshButton;
+
 
 @end

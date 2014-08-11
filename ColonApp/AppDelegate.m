@@ -16,22 +16,16 @@
 
 @synthesize agenda;
 @synthesize tablaDisponibilidad;
-@synthesize estaParseando;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-
-    [self backgroundParser];
-    [self inicializarTablaDisponibilidad];
+    //Teclado oscuro -> por defecto es blanquito.
     [[UITextField appearance] setKeyboardAppearance:UIKeyboardAppearanceDark];
     
     [self inicializarTabs];
     
     //[self.window makeKeyAndVisible];
     
-    
-    [self parsearFecha];
     
     //Cosas del Parse...
     [Parse setApplicationId:@"VMAZUcL4dQslhLyBBuQui4Shhv7igRdbUXqR0Z3w"
@@ -48,7 +42,6 @@
 
 - (void) backgroundParser{
     NSLog(@"Intentando parsear desde AppDelegate");
-    self.estaParseando = YES;
     [NSThread detachNewThreadSelector:@selector(parsear) toTarget:self withObject:nil];
 }
 
@@ -74,17 +67,15 @@
         NSLog(@"No Funciono...");
     }
     
-    self.estaParseando = NO;
-    
     return worked;
     
 }
 
 
+- (NSDictionary *) tablaDisponibilidad{
 // Carga el nombre de la imagen correspondiente a cada Valor en un Hash.
-- (void) inicializarTablaDisponibilidad{
     
-    if (!tablaDisponibilidad) {
+    if (!tablaDisponibilidad){
         tablaDisponibilidad = [[NSMutableDictionary alloc] initWithCapacity:5];
         
         [tablaDisponibilidad setValue:@"availability_excellent.png" forKey:@"E"];
@@ -92,7 +83,9 @@
         [tablaDisponibilidad setValue:@"availability_limited.png" forKey:@"L"];
         [tablaDisponibilidad setValue:@"availability_sold_out.png" forKey:@"S"];
     }
+    return tablaDisponibilidad;
 }
+
 
 - (void) inicializarTabs{
    //1- Programa     2-Cartelera      3- 360
@@ -125,24 +118,6 @@
     
 }
 
-
-- (void) parsearFecha{
-    NSString *unSting = [NSString stringWithFormat:@"2014-07-29 10:00 AM"];
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd h:mm a"];
-
-    
-    NSDate *fechaFormateada = [dateFormatter dateFromString:unSting];
-    
-    [dateFormatter setDateFormat:@"dd'/'MM 'a las' h:mm 'hs'"];
-     
-
-    NSLog(@"La fecha es: %@", [dateFormatter stringFromDate:fechaFormateada]);
-    
-
-
-}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

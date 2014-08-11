@@ -41,14 +41,12 @@
     [self agregarPullToRefresh];
     
     [self agregarSpinner];
-    
-    [self cargarPrograma];
 
+    [self cargarAgenda];
     
     //Esto cambia el color del fondo de la tableView.
     self.view.backgroundColor = [UIColor darkGreyColorForCell];
     [self.searchDisplayController.searchResultsTableView setBackgroundColor:[UIColor darkGreyColorForCell]];
-
 }
 
 
@@ -77,17 +75,8 @@
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self.searchDisplayController.searchBar setHidden:YES];
         
-        if (self.app.estaParseando){
-            [self.spinner startAnimating];
-
-        } else {
-            //Muestro un mensaje para que el usuario actualice.
-            [self mostrarMensajeActualizar];
-            
-        }
+        return 0;
     }
-    
-    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -246,9 +235,9 @@
 /*    Si llegue a bajarme la agenda, la muestro, sino vuelvo
       a intentar descargarla en segundo plano y actualizo la table.
  */
-- (void) cargarPrograma{
+- (void) cargarAgenda{
     if (!self.app.agenda) {
-        NSLog(@"No se habia parseado");
+        NSLog(@"No estaba parseado");
         [self parsearXML];
     } else {
         NSLog(@"Ya se habia parseado el RSS \n Recargo la tabla");
@@ -283,28 +272,64 @@
     self.spinner.hidesWhenStopped = YES;
     self.spinner.color = [[self view] tintColor];
     [self.view addSubview:spinner];
+    
+    [self.spinner startAnimating];
 }
 
 #pragma mark - Metodos
-- (void) mostrarAlertaConFechaDeVenta{
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
-                                                    message: [NSString stringWithFormat:@"Las localidades salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
-                                                   delegate:self
-                                          cancelButtonTitle:nil
-                                          otherButtonTitles:@"OK", nil];
-    [alert show];
+
+- (void) parsearXML{
+    NSLog(@"Parseando en segundo plano desde Agenda");
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        BOOL pudoParsear = [self.app parsear];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            
+            [self.spinner stopAnimating];
+
+            if ( [self.refreshControl isRefreshing ] ){
+                NSLog(@"Termino de actualizar via Pull-To-Refresh");
+                [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:0.5];
+            } else {
+                NSLog(@"Termino de actualizar por via normal.");
+                [self actualizarTable:pudoParsear];
+            }
+        });
+    });
 }
 
+- (void)stopRefresh
+{
+    NSLog(@"Termino Pull-down refresh");
+    [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
+    
+}
+
+- (void) actualizarTable: (BOOL) pudoParsear{
+    [self.spinner stopAnimating];
+
+    if (pudoParsear) {
+        NSLog(@"Parseo Bien");
+        [self.tableView reloadData];
+    } else {
+        NSLog(@"Error en el parseo, muestro mensaje");
+        [self mostrarMensajeActualizar];
+    }
+}
+
+
+#pragma mark - UIX methods
 - (void) mostrarMensajeActualizar{
     
     //Creo una view que ocupe toda la pantalla
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-
+    
     //Creo un icono para agregarselo a la view
     UIImageView *icono = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 0, 0) ];
     [icono setImage: [UIImage imageNamed:@"agenda-flecha.png"]];
     [icono sizeToFit];
-    [icono setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4)];
+    //[icono setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4)];
+    [icono setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /3)];
     
     // Creo un mensaje diciendo que actualice.
     UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 0, 0)];
@@ -314,7 +339,9 @@
     messageLabel.textAlignment = NSTextAlignmentCenter;
     //        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
     [messageLabel sizeToFit];
-    [messageLabel setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4 + icono.frame.size.height * 1.5)];
+    //[messageLabel setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /4 + icono.frame.size.height * 1.5)];
+    [messageLabel setCenter:CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height /3 + icono.frame.size.height * 1.5)];
+    
     
     //Agrego las views a la view principal.
     [customView addSubview:icono];
@@ -324,28 +351,13 @@
     self.tableView.backgroundView = customView;
 }
 
-- (void) parsearXML{
-    NSLog(@"Parseando en segundo plano desde Agenda");
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [self.app parsear];
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            NSLog(@"Termino");
-            [self.spinner stopAnimating];
-            [self.tableView reloadData];
-            if ( [self.refreshControl isRefreshing ] ){
-                [self performSelector:@selector(stopRefresh) withObject:nil afterDelay:1.5];
-            }
-        });
-    });
-}
-
-- (void)stopRefresh
-{
-    NSLog(@"Refresh stopped.");
-    [self.spinner stopAnimating];
-    [self.refreshControl endRefreshing];
-    [self.tableView reloadData];
-    
+- (void) mostrarAlertaConFechaDeVenta{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Entradas no disponibles"
+                                                    message: [NSString stringWithFormat:@"Las localidades salen a la venta el %@",itemAgenda.getFechaDeVentaConvertida ]
+                                                   delegate:self
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"OK", nil];
+    [alert show];
 }
 
 

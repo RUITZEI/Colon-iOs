@@ -33,6 +33,9 @@
 {
     [super viewDidLoad];
     
+    [self.forwardButton setEnabled:NO];
+    [self.backButton setEnabled: NO];
+        
     [self setearDelegate];
     
     [self cargarSpinner];
@@ -59,11 +62,13 @@
     
     NSLog(@"Termino la carga del Sitio");
     [self.spinner stopAnimating];
+    [self actualizarBotones];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
     NSLog(@"Error cargando el sitio");
     [self.spinner stopAnimating];
+    [self actualizarBotones];
 }
 
 /*
@@ -140,6 +145,24 @@
 -(IBAction)reloadSite:(id)sender{
     
     [self.webView reload];
+}
+
+
+/*
+ Cada vez que termina de cargarse una pagina se fija si deberian estar ENABLED los botones de
+ back y forward. Refresh siempre está disponible.
+ */
+- (void) actualizarBotones{
+    [self.forwardButton setEnabled:NO];
+    [self.backButton setEnabled: NO];
+    
+    if (webView.canGoBack){
+        [self.backButton setEnabled:YES];
+    }
+         
+    if (webView.canGoForward){
+        [self.forwardButton setEnabled:YES];
+    }
 }
 
 @end

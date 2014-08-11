@@ -316,6 +316,9 @@
                     <navigationItem key="navigationItem" id="r54-Cg-zyL"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="backButton" destination="gYI-mK-NsZ" id="n5m-MW-kHt"/>
+                        <outlet property="forwardButton" destination="boH-Ik-HDg" id="Uag-6i-rwT"/>
+                        <outlet property="refreshButton" destination="qch-Ad-wZW" id="wq2-es-oOV"/>
                         <outlet property="searchDisplayController" destination="oqH-Y4-T8g" id="apA-VD-VxE"/>
                         <outlet property="webView" destination="2Se-dP-kcf" id="8Rx-q8-NvK"/>
                     </connections>
