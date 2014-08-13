@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="CZ4-LZ-v7h">
     <dependencies>
+        <deployment defaultVersion="1552" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
@@ -374,7 +375,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iU7-OR-RA5">
-                                <rect key="frame" x="105" y="206" width="110" height="108"/>
+                                <rect key="frame" x="105" y="234" width="110" height="108"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="110" id="CdE-4n-vuJ"/>
@@ -394,7 +395,7 @@
                         <constraints>
                             <constraint firstItem="iU7-OR-RA5" firstAttribute="centerX" secondItem="Csj-81-37C" secondAttribute="centerX" id="0Z2-N4-iwF"/>
                             <constraint firstAttribute="centerX" secondItem="iU7-OR-RA5" secondAttribute="centerX" id="CDI-VO-POO"/>
-                            <constraint firstAttribute="centerY" secondItem="iU7-OR-RA5" secondAttribute="centerY" id="VjE-OU-fKF"/>
+                            <constraint firstAttribute="centerY" secondItem="iU7-OR-RA5" secondAttribute="centerY" constant="-28.5" id="VjE-OU-fKF"/>
                             <constraint firstItem="RHc-d4-76E" firstAttribute="leading" secondItem="Csj-81-37C" secondAttribute="leading" id="moV-13-cWN"/>
                             <constraint firstItem="iU7-OR-RA5" firstAttribute="centerX" secondItem="RHc-d4-76E" secondAttribute="centerX" id="o6F-aU-xir"/>
                             <constraint firstAttribute="bottom" secondItem="RHc-d4-76E" secondAttribute="bottom" id="uUv-yg-mBh"/>
@@ -434,7 +435,7 @@
                             <constraint firstItem="QWv-G9-JfB" firstAttribute="leading" secondItem="ncb-xC-aHd" secondAttribute="leading" id="rhR-DS-H9A"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Programa" id="8BG-Hy-YDf"/>
+                    <tabBarItem key="tabBarItem" title="Programa" image="icono-programa.png" id="8BG-Hy-YDf"/>
                     <connections>
                         <outlet property="webView" destination="QWv-G9-JfB" id="TP6-HV-mZe"/>
                     </connections>
@@ -447,7 +448,7 @@
         <scene sceneID="S7x-93-tds">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QaG-0g-RNf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cartelera" id="xiv-KM-aMU"/>
+                    <tabBarItem key="tabBarItem" title="Cartelera" image="icono-cartelera.png" id="xiv-KM-aMU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rgi-7a-rM7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -471,7 +472,7 @@
         <scene sceneID="lTE-G5-BzK">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="WHD-fE-lBQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Colón 360º" id="POF-mx-DSj"/>
+                    <tabBarItem key="tabBarItem" title="Colón 360º" image="icono-360.png" id="POF-mx-DSj"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qS1-wA-9Xa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -498,8 +499,11 @@
         <image name="boton_360.png" width="210" height="210"/>
         <image name="boton_360_over.png" width="210" height="210"/>
         <image name="degrade.png" width="200" height="36"/>
+        <image name="icono-360.png" width="30" height="30"/>
+        <image name="icono-cartelera.png" width="30" height="30"/>
         <image name="icono-cartelera_activo.png" width="30" height="30"/>
         <image name="icono-filtro.png" width="24" height="24"/>
+        <image name="icono-programa.png" width="30" height="30"/>
         <image name="web_back.png" width="24" height="24"/>
         <image name="web_forward.png" width="24" height="24"/>
         <image name="web_refresh.png" width="24" height="24"/>

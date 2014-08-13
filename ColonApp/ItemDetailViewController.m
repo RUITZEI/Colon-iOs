@@ -84,7 +84,6 @@
 
 #pragma mark - Inicializadores
 - (void) setearDelegate{
-    
     // Necesario para que funcionen los metodos del webview.
     NSLog(@"seteando delegate del webView");
     [webView setDelegate:self];
@@ -128,22 +127,18 @@
 #pragma mark - Bottom bar Methods
 - (IBAction)goBack:(id)sender{
     NSLog(@"Back Pressed");
+    [self.webView goBack];
     
-    if ([self.webView canGoBack]) {
-        [self.webView goBack];
-    }
 }
 
 - (IBAction)goForward:(id)sender{
     NSLog(@"Forward Pressed");
-    
-    if ([self.webView canGoForward]) {
-        [self.webView goForward];
-    }
+    [self.webView goForward];
+
 }
 
 -(IBAction)reloadSite:(id)sender{
-    
+    NSLog(@"Refresh pressed");
     [self.webView reload];
 }
 

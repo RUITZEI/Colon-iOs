@@ -106,6 +106,7 @@
     (void) [tabCartelera initWithTitle:@"Cartelera" image:[UIImage imageNamed:@"icono-cartelera.png"]  selectedImage:[UIImage imageNamed:@"icono-cartelera_activo.png"]];
     (void)[tabPrograma initWithTitle:@"Programa" image:[UIImage imageNamed:@"icono-programa.png"] selectedImage:[UIImage imageNamed:@"icono-programa_activo.png"]];
     (void) [tabTour initWithTitle:@"Colón 360º" image:[UIImage imageNamed:@"icono-360.png"]  selectedImage:[UIImage imageNamed:@"icono-360_activo.png"]];
+
     
     
     // Change the title color of tab bar items
